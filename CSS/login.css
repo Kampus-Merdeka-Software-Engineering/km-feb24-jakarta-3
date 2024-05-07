@@ -5,6 +5,10 @@
     font-size: 14px;
 }
 
+.text-accent {
+	color: #202020 !important;
+}
+
 /* SECTION */
 section {
     display: flex;
@@ -38,18 +42,18 @@ section {
 }
 
 .akun {
-    margin-top: 1.5rem;
+    margin-top: 1px;
 }
 
 .akun img {
-    width: 1.5rem;
+    width: 2rem;
 }
 
 .input {
     display: flex;
     flex-direction: column;
     align-self: center;
-    margin-top: 2.2rem;
+    margin-top: 1rem;
     width: 80%;
 }
 
@@ -57,14 +61,14 @@ section {
     background-color: white;
     border: solid transparent;
     border-radius: 0.5rem;
-    padding: 0.2rem;
+    padding: 0.1rem;
 }
 
 .password {
     background-color: white;
     border: solid transparent;
     border-radius: 0.5rem;
-    padding: 0.2rem;
+    padding: 0.1rem;
 }
 
 input::placeholder {
