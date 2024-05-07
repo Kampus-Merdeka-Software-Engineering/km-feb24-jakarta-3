@@ -6,7 +6,7 @@
 }
 
 nav {
-    background-color: #72ACC6;
+    background-color: #528fac;
     color: white;
     height: 4.5rem;
 }
@@ -42,22 +42,26 @@ input::placeholder {
     height: 100vh;
 }
 
-.sidebar-content {
-    background-color: rgb(225, 225, 225); 
-    margin-top: 5rem;
-}
-
-.sidebar-content ul {
+.menu {
+    margin-top: 3rem;
     list-style: none;
+    padding: 0;
 }
 
-.sidebar-content li {
+.menu li {
+    padding: 1rem;
+    margin: 0.3rem;
+    border-radius: 0.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu li:hover, 
+.active {
     background-color: white;
-    margin-top: 4rem;
 }
 
-.sidebar-content a {
+.menu a {
+    color: black;
+    font-size: 1rem;
     text-decoration: none;
-    color: #72ACC6;
-    font-weight: 500;
 }
