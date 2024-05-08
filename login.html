@@ -15,24 +15,25 @@
 </head>
 <body>
     <section>
+        <div class="vending-machine"><img src="/asset/mask_group_x2.png" alt="mask-gorup"></div>
         <div class="login">
-            <div class="login-content">
-                <h1>LOGIN</h1>
-                <div class="akun">
-                    <img style="background-color: white; padding: 0.4rem; border-radius: 100%; margin-right: 0.5rem;" src="/Assets/google.png" alt="#">
-                    <img style="background-color: white; padding: 0.4rem; border-radius: 100%; margin-left: 0.5rem;" src="/Assets/facebook.png" alt="#">
-                </div>
-                <p> Or </p>
-                <div class="input">
-                    <input type="text" class="username" placeholder="Username">
-                </br>
-                    <input type="password" class="password" placeholder="Password">
-                </div>
-                <button>Login</button>
-                <p>New Customer? <a class="text-accent" href="/Create.html">Create Account</a></p>
+            <h1>Login</h1>
+            <div class="logo">
+                <img class="logo-google" src="/Assets/google.png" alt="logo-google">
+                <img class="logo-fb" src="/Assets/facebook.png" alt="logo-fb">
             </div>
-        </div>
-        <div class="vending-machine">
+            <p>Or</p>
+            <div class="form">
+                <form>
+                    <input type="text" name="username" placeholder="Username" required>
+                    <br>
+                    <input type="password" name="password" placeholder="Password" required>
+                </form>
+            </div>
+            <div class="submit">
+                <button type="submit">Login</button>
+            </div>
+            <p>New Customer? <a class="text-accent" href="/Create.html">Create Account</a></p>
         </div>
     </section>
 </body>
