@@ -5,97 +5,101 @@
     font-size: 14px;
 }
 
-.text-accent {
-	color: #559aba !important;
-}
-
-/* SECTION */
-section {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-/* LOGIN */
-.login {
+body{
+    margin-left: 200px;
+    background-color: #EBEBEB;
     display: flex;
     justify-content: left;
-    align-content: center;
-}
-
-.login-content{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-color: rgb(220, 220, 220);
-    width: 20rem;
-    height: 22rem;
-    margin-top: 10rem;
-    margin-left: 12rem;
-    border: solid transparent;
-    border-radius: 0.5rem;
-}
-
-.login-content h1{
-    font-size: 1.2rem;
-    margin-top: 1rem;
-}
-
-.akun {
-    margin-top: 1px;
-}
-
-.akun img {
-    width: 2rem;
-}
-
-.input {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin-top: 1rem;
-    width: 80%;
-}
-
-.username {
-    background-color: white;
-    border: solid transparent;
-    border-radius: 0.5rem;
-    padding: 0.1rem;
-}
-
-.password {
-    background-color: white;
-    border: solid transparent;
-    border-radius: 0.5rem;
-    padding: 0.1rem;
-}
-
-input::placeholder {
-    font-size: 0.8rem;
-}
-
-.login-content button{
-    align-self: center;
-    margin-top: 2.5rem;
-    width: 60%;
-    background-color: #72ACC6;
-    color: white;
-    font-weight: 500;
-    font-size: 0.8rem;
-    border: solid transparent;
-    border-radius: 0.6rem;
-    padding: 0.4rem;
+    align-items: center;
+    height: 100vh;
 }
 
 .vending-machine {
-    position: relative;
-    width: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30%;
     height: 100vh;
+    opacity: 0.8;
     background-color: black;
     background-image: url(/Assets/vendingMachine.png);
     background-repeat: no-repeat;
     background-size: cover;
-    border: 1px solid rgb(121, 0, 0), 0;
-    border-bottom-left-radius: 100rem;
+    background-position-x: left;
+    border: 1px solid rgb(121, 0, 0);
+    clip-path: polygon(70% 0, 100% 0, 150% 150%, 0 50%, 0 50%);
+}
+
+
+.login {
+    background-color: #D9D9D9; 
+    padding: 20px 50px 20px 50px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login h1 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+img{
+    width: 25px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.logo-google{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.logo-fb{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 65%;
+    background-color: #72ACC6;
+    color: #fff;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #87b2c4;
+}
+
+.submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 25px;
 }
