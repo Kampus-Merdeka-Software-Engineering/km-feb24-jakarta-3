@@ -5,8 +5,8 @@
     font-size: 14px;
 }
 
-/* SECTION */
-.section {
+/* MAIN */
+.main {
     display: flex;
     justify-content: space-between;
     
@@ -76,3 +76,41 @@
     border-radius: 2rem;
     font-weight: 600;
 }
+
+/* DropDown */
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(114,172,198,1);
+    min-width: 1rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: rgb(114,172,198);
+}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .btn-vending-machine {
+    background-color: white;
+    color: rgb(114,172,198);
+    padding: 0.5rem;
+  }
