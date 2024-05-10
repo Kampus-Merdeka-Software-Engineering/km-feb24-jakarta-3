@@ -104,6 +104,19 @@ button[type="submit"]:hover {
         background-color: brown;
         font-size: 0.9rem;
     }
+
+    .footer {
+        position: relative;
+        margin-top: 20px;
+        margin-left: 325px;
+        
+      }
+        
+      .footer .made-by {
+        margin-top: 15px;
+        font-size: 13px;
+        color: #aaa;
+      }
 }
 
 /* tablet */
@@ -112,6 +125,19 @@ button[type="submit"]:hover {
         background-color:cornflowerblue;
         font-size: 1rem;
     }
+
+    .footer {
+        position: relative;
+        margin-top: 20px;
+        margin-left: 325px;
+        
+      }
+        
+      .footer .made-by {
+        margin-top: 15px;
+        font-size: 13px;
+        color: #aaa;
+      }
 }
 
 /* laptop */
@@ -120,4 +146,30 @@ button[type="submit"]:hover {
         background-color:green;
         font-size: 1.2rem;
     }
+
+    .footer {
+        position: relative;
+        margin-top: 20px;
+        margin-left: 325px;
+        
+      }
+        
+      .footer .made-by {
+        margin-top: 15px;
+        font-size: 13px;
+        color: #aaa;
+      }
 }
+
+/* .footer {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 325px;
+    
+  }
+    
+  .footer .made-by {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #aaa;
+  } */

@@ -114,3 +114,16 @@
     color: rgb(114,172,198);
     padding: 0.5rem;
   }
+
+  .footer {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 325px;
+    
+  }
+    
+  .footer .made-by {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #aaa;
+  }

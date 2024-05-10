@@ -94,3 +94,16 @@ input::placeholder {
     border-radius: 0.6rem;
     padding: 0.4rem;
 }
+
+.footer {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 325px;
+    
+  }
+    
+  .footer .made-by {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #aaa;
+  }
