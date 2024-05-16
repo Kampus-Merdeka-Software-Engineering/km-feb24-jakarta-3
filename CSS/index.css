@@ -199,6 +199,50 @@ main{
   width: 30rem;
 }
 
+/* SECTION TEAM */
+.header-content-team {
+  text-align: center;
+}
+
+.header-content-team h1 {
+  font-size: 2rem;
+  color: #72ACC6;
+}
+
+.profil-team {
+  display: grid;
+  padding: 2.5rem;
+}
+
+.profil-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.profil {
+  width: 10rem;
+  height: 10rem;
+  border: solid transparent;
+  border-radius: 100%;
+  background-color: white;
+}
+
+.name {
+  align-content: center;
+  line-height: 0.6rem;
+  border: solid transparent;
+  border-radius: 2rem;
+  background-color: #72ACC6;
+  color: white;
+  width: 10rem;
+  height: 3rem;
+}
+
+.name p {
+  display: flex;
+  justify-content: center;
+}
+
 
 /* RESPONSIVE */
 /* mobile */
