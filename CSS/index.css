@@ -257,6 +257,12 @@ main{
 }
 
 
+/* FOOTER */
+footer{
+  background-color: #72ACC6;
+}
+
+
 /* RESPONSIVE */
 /* mobile */
 @media (min-width: 600px){
