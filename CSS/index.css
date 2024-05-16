@@ -20,13 +20,13 @@ aside {
   height: 100%;
 }
 
-.main-menu {
+.menu {
   margin-top: 5rem;
   list-style: none;
   padding: 0;
 }
 
-.main-menu li {
+.menu li {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
@@ -38,11 +38,11 @@ aside {
   background-color: white;
 }
 
-.main-menu li>img {
+.menu li>img {
   width: 1.8rem;
 }
 
-.main-menu a {
+.menu a {
   display: flex;
   align-items: center;
   color: #72ACC6;
@@ -61,8 +61,6 @@ aside {
   color: white;
 }
 
-/* SECTION-DASHBOARD */
-
 main{
   display: flex;
   flex-direction: column;
@@ -72,19 +70,66 @@ main{
   overflow-x: hidden;
 }
 
+/* SECTION-DASHBOARD */
 
-#main-dashboard {
+.header {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  width: 7rem;
+  padding: 0.5rem;
+  border: solid transparent;
+  border-radius: 2rem;
+
+  color: rgb(162, 162, 162);
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+#dashboard {
   display: flex;
   flex-direction: column;
   padding: 5rem;
 }
 
-#main-dashboard h1{
+#dashboard h1{
   font-size: 1.3rem;
   color: black;
 }
 
-.main-dashboard-content {
+.dashboard-content {
   display: grid;
   grid-template-columns: auto auto auto;
   align-items: center;
@@ -121,42 +166,43 @@ main{
 }
 
 /* SECTION-ABOUT */
-#main-about {
+#about {
   position: relative;
 }
 #wave {
-  width: 100rem;
+  width: 110rem;
 }
-.main-about-content h1{
+.about-content h1{
   position: absolute;
-  top: 20%;
-  left: 2%;
-  font-size: 3rem;
+  top: 8%;
+  left: 5%;
+  font-size: 3.5rem;
   font-weight: 800;
   color: #3C89AA;
 }
 
-.main-about-content p{
+.about-content p{
   position: absolute;
-  top: 33%;
-  left: 16%;
+  top: 23%;
+  left: 18%;
   color: #3C89AA;
-  width: 20rem;
+  width: 20.5rem;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   font-weight:bold;
 }
 
-.main-about-content img{
+.about-content img{
   position: absolute;
-  top: 10%;
-  left: 42%;
+  top: 5%;
+  left: 55%;
+  width: 30rem;
 }
 
 
 /* RESPONSIVE */
 /* mobile */
-@media (min-width: 600px){
+@media (min-width: 320px){
   html{
       background-color: brown;
       font-size: 0.5rem;
@@ -198,7 +244,7 @@ main{
 }
 
 /* laptop */
-@media (min-width: 992px){
+@media (min-width: 1024px){
   html{
       background-color:green;
       font-size: 1rem;
