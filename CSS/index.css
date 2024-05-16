@@ -209,17 +209,21 @@ main{
   color: #72ACC6;
 }
 
-.profil-team {
+.profile-team {
   display: grid;
+  justify-items: center;
+  grid-template-columns: 20rem 15rem 20rem 15rem;
+  row-gap: 2rem;
   padding: 2.5rem;
 }
 
-.profil-content {
+.profile-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.profil {
+.profile {
   width: 10rem;
   height: 10rem;
   border: solid transparent;
@@ -227,26 +231,35 @@ main{
   background-color: white;
 }
 
+.profile img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+}
+
 .name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   align-content: center;
-  line-height: 0.6rem;
+  line-height: 1.2rem;
+  text-align: center;
   border: solid transparent;
   border-radius: 2rem;
   background-color: #72ACC6;
   color: white;
-  width: 10rem;
+  width: 12rem;
   height: 3rem;
 }
 
 .name p {
-  display: flex;
-  justify-content: center;
+  font-size: 1rem;
 }
 
 
 /* RESPONSIVE */
 /* mobile */
-@media (min-width: 320px){
+@media (min-width: 600px){
   html{
       background-color: brown;
       font-size: 0.5rem;
