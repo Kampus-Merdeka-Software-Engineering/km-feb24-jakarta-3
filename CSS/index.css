@@ -111,11 +111,12 @@ main{
   border: solid transparent;
   border-radius: 2rem;
 
-  color: rgb(162, 162, 162);
+  color: rgb(191, 191, 191);
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  background-color: #72ACC6;
+  color: white;
 }
 
 #dashboard {
@@ -134,6 +135,10 @@ main{
   grid-template-columns: auto auto auto;
   align-items: center;
 
+}
+
+#myChart {
+  background-color: white;
 }
 
 .chart1 {
@@ -259,7 +264,17 @@ main{
 
 /* FOOTER */
 footer{
+  position: relative;
+  margin-top: 1.2rem;
+  text-align: center;
   background-color: #72ACC6;
+  height: 20rem;
+}
+  
+.footer-content p {
+  margin: 1rem;
+  font-size: 1rem;
+  color: #dbdbdb;
 }
 
 
@@ -325,17 +340,4 @@ footer{
       font-size: 13px;
       color: #aaa;
     }
-}
-
-.footer {
-  position: relative;
-  margin-top: 20px;
-  margin-left: 400px;
-  
-}
-  
-.footer .made-by {
-  margin-top: 15px;
-  font-size: 13px;
-  color: #aaa;
 }

@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./CSS/index.css">
-
+    
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
     <aside>
@@ -35,7 +37,7 @@
             <div class="header">
                 <h1>Dashboard</h1>
                 <div class="dropdown">
-                    <button class="dropbtn">Dropdown</button>
+                    <button class="dropbtn">Location</button>
                     <div class="dropdown-content">
                       <a href="#">Link 1</a>
                       <a href="#">Link 2</a>
@@ -44,6 +46,9 @@
                 </div>
             </div>
             <div class="dashboard-content">
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>                  
                 <div class="chart1"></div>
                 <div class="chart2"></div>
                 <div class="chart3"></div>
@@ -149,14 +154,14 @@
             </div>
         </section>
         <footer>
-            <section class="footer">            
-                <p class="made by">
-                  <br>
-                  Copyright &copy; Team 3
+            <div class="footer-content">
+                <p>
+                    Copyright &copy; Jakarta Team 3
                 </p>
-              </section>
-        
+            </div>
         </footer>
     </main>
+
+    <script src="/JavaScript/main.js"></script>
 </body>
 </html>
