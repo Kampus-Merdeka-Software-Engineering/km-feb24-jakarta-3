@@ -326,3 +326,16 @@ footer{
       color: #aaa;
     }
 }
+
+.footer {
+  position: relative;
+  margin-top: 20px;
+  margin-left: 400px;
+  
+}
+  
+.footer .made-by {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #aaa;
+}
