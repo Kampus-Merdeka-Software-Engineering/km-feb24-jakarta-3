@@ -187,7 +187,7 @@ main{
   display: flex;
 }
 
-.btn-weekly {
+#btn-weekly {
   width: 7rem;
   height: 2.2rem;
   font-size: 1.2rem;
@@ -196,13 +196,14 @@ main{
   color: #aaa;
 }
 
-.btn-monthly {
+#btn-monthly {
   width: 7rem;
   height: 2.2rem;
   font-size: 1.2rem;
   border: solid transparent;
   border-radius: 0 4rem 4rem 0;
   color: #aaa;
+  cursor: pointer;
 }
 
 .courses-content {
@@ -289,6 +290,12 @@ main{
   width: 8rem;
   height: 1.5rem;
   margin-top: 0.5rem;
+}
+
+#chart-penjualan {
+  width: 5rem;
+  height: 20rem;
+  background-color: white;
 }
 
 
