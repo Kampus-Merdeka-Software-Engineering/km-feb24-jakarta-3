@@ -71,11 +71,28 @@ main{
 }
 
 /* SECTION-DASHBOARD */
+#dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+}
 
-.header {
+.header-dashboard {
   display: flex;
   align-items: center;
   gap: 2.5rem;
+}
+
+#dashboard h1{
+  font-size: 1.3rem;
+  color: #3C89AA;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+
 }
 
 .dropdown {
@@ -119,23 +136,6 @@ main{
   color: white;
 }
 
-#dashboard {
-  display: flex;
-  flex-direction: column;
-  padding: 5rem;
-}
-
-#dashboard h1{
-  font-size: 1.3rem;
-  color: black;
-}
-
-.dashboard-content {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  align-items: center;
-
-}
 
 #myChart {
   background-color: white;
@@ -169,6 +169,128 @@ main{
   margin-top: 1.2rem;
   background-color: white;
 }
+
+
+/* SECTION-MONITORING DATA */
+#monitoringData {
+  padding: 5rem;
+}
+
+#monitoringData h1{
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #3C89AA;
+}
+
+.header-monitoring {
+  display: flex;
+}
+
+.btn-weekly {
+  width: 7rem;
+  height: 2.2rem;
+  font-size: 1.2rem;
+  border: solid transparent;
+  border-radius: 4rem 0 0 4rem;
+  color: #aaa;
+}
+
+.btn-monthly {
+  width: 7rem;
+  height: 2.2rem;
+  font-size: 1.2rem;
+  border: solid transparent;
+  border-radius: 0 4rem 4rem 0;
+  color: #aaa;
+}
+
+.courses-content {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.section-product {
+  display: flex;
+  justify-content: center;
+  background-color: #9abccc;
+  width: 12rem;
+  height: 6rem;
+  border-radius: 1rem;
+}
+.header-product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(157, 139, 182, 49%);
+  border-radius: 3rem;
+  text-align: center;
+  width: 8rem;
+  height: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.section-mqty {
+  display: flex;
+  justify-content: center;
+  background-color: #9abccc;
+  width: 12rem;
+  height: 6rem;
+  border-radius: 1rem;
+}
+.header-mqty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(157, 139, 182, 49%);
+  border-radius: 3rem;
+  text-align: center;
+  width: 8rem;
+  height: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.section-transaction {
+  display: flex;
+  justify-content: center;
+  background-color: #9abccc;
+  width: 12rem;
+  height: 6rem;
+  border-radius: 1rem;
+}
+.header-transaction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(157, 139, 182, 49%);
+  border-radius: 3rem;
+  text-align: center;
+  width: 8rem;
+  height: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.section-rprice {
+  display: flex;
+  justify-content: center;
+  background-color: #9abccc;
+  width: 12rem;
+  height: 6rem;
+  border-radius: 1rem;
+}
+.header-rprice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(157, 139, 182, 49%);
+  border-radius: 3rem;
+  text-align: center;
+  width: 8rem;
+  height: 1.5rem;
+  margin-top: 0.5rem;
+}
+
 
 /* SECTION-ABOUT */
 #about {
