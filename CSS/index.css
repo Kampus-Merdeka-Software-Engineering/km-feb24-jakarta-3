@@ -137,7 +137,7 @@ main{
 }
 
 
-#myChart {
+#chart0 {
   background-color: white;
 }
 
@@ -187,16 +187,22 @@ main{
   display: flex;
 }
 
-#btn-weekly {
+#btnWeekly {
   width: 7rem;
   height: 2.2rem;
   font-size: 1.2rem;
   border: solid transparent;
   border-radius: 4rem 0 0 4rem;
   color: #aaa;
+  cursor: pointer;
 }
 
-#btn-monthly {
+#btnWeekly:hover {
+  background-color: #9abccc;
+  color: white;
+}
+
+#btnMonthly {
   width: 7rem;
   height: 2.2rem;
   font-size: 1.2rem;
@@ -204,6 +210,11 @@ main{
   border-radius: 0 4rem 4rem 0;
   color: #aaa;
   cursor: pointer;
+}
+
+#btnMonthly:hover {
+  background-color: #9abccc;
+  color: white;
 }
 
 .courses-content {
@@ -292,10 +303,10 @@ main{
   margin-top: 0.5rem;
 }
 
-#chart-penjualan {
-  width: 5rem;
-  height: 20rem;
+#chartPenjualan {
   background-color: white;
+  border: solid transparent;
+  border-radius: 1rem;
 }
 
 
