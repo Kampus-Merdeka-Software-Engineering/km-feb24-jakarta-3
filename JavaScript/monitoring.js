@@ -166,3 +166,21 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => console.error('Error fetching data:', error));
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const transactionCountElement = document.getElementById('transaction-count');
+
+  // Fetch the JSON data
+  fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+          // Assuming data is an array of transaction objects
+          const transactions = Array.isArray(data) ? data : [data];
+          const transactionCount = transactions.length;
+
+          // Update the scorecard with the transaction count
+          transactionCountElement.textContent = transactionCount;
+      })
+      .catch(error => {
+          console.error('Error fetching the JSON data:', error);
+      });
+});
