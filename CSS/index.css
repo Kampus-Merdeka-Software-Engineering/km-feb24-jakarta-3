@@ -155,6 +155,24 @@ main{
   width: 22rem;
   margin-top: 1.2rem;
   background-color: white;
+  text-align: left;
+  border-radius: 1rem;
+}
+.colspan {
+  text-align: center;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Memberikan nomor urutan pada baris tabel */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 .chart3{

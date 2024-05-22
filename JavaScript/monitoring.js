@@ -26,6 +26,7 @@ function groupDataByWeek(data) {
   return weeks;
 }
 
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 // Fungsi untuk mengelompokkan data berdasarkan bulan
 function groupDataByMonth(data) {
   const months = {};
@@ -58,9 +59,19 @@ async function updateChart(groupByFunction) {
   // Mengelompokkan data menggunakan fungsi yang diberikan
   const groupedData = groupByFunction(data);
 
-  // Memisahkan label dan nilai dari data yang dikelompokkan
-  const labels = Object.keys(groupedData);
-  const values = Object.values(groupedData);
+    // Memisahkan label dan nilai dari data yang dikelompokkan
+    const labels = Object.keys(groupedData).map(label => {
+      if (groupByFunction === groupDataByMonth) {
+          const [year, month] = label.split('-');
+          return `${monthNames[parseInt(month) - 1]} ${year}`;
+      }
+      return label;
+    });
+    const values = Object.values(groupedData);
+
+  // // Memisahkan label dan nilai dari data yang dikelompokkan
+  // const labels = Object.keys(groupedData);
+  // const values = Object.values(groupedData);
 
       // Jika chart sudah ada, maka hapus dulu
       if (myChart) {
@@ -70,7 +81,7 @@ async function updateChart(groupByFunction) {
   // Membuat chart menggunakan Chart.js
   const ctx = document.getElementById('chartPenjualan').getContext('2d');
   myChart = new Chart(ctx, {
-      type: 'line', // Jenis chart: bar, line, pie, dll.
+      type: 'line',
       data: {
           labels: labels,
           datasets: [{
