@@ -212,8 +212,8 @@ tr:nth-child(even) {
 }
 
 #btnWeekly:hover {
-  background-color: #9abccc;
-  color: white;
+  background-color: #F9E4E4;
+  color: rgb(72, 72, 72);
 }
 
 #btnMonthly {
@@ -227,8 +227,8 @@ tr:nth-child(even) {
 }
 
 #btnMonthly:hover {
-  background-color: #9abccc;
-  color: white;
+  background-color: #F9E4E4;
+  color: rgb(72, 72, 72);
 }
 
 .courses-content {
