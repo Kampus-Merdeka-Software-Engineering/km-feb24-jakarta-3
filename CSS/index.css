@@ -90,8 +90,8 @@ main{
 
 .dashboard-content {
   display: grid;
-  grid-template-columns: auto auto auto;
-  align-items: center;
+  grid-template-columns: auto auto;
+  gap: 1rem;
 
 }
 
@@ -139,36 +139,50 @@ main{
 
 #chart0 {
   background-color: white;
+  border: solid transparent;
+  border-radius: 1rem;
 }
 
-.chart1 {
-  height: 15rem;
-  width: 22rem;
-  margin-top: 1.2rem;
+#chart1 {
   background-color: white;
+  border: solid transparent;
+  border-radius: 1rem;
 }
 
-.chart2 {
-  height: 15rem;
-  width: 22rem;
-  margin-top: 1.2rem;
+#chart2 {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
   background-color: white;
+  border: solid transparent;
+  border-radius: 1rem;
 }
 
-.chart3{
-  height: 15rem;
-  width: 22rem;
-  margin-top: 1.2rem;
-  background-color: white;
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
-.chart4{
-  height: 15rem;
-  width: 15rem;
-  border-radius: 100%;
-  margin-top: 1.2rem;
-  background-color: white;
+th {
+  background-color: #f2f2f2;
 }
+
+.colspan {
+  text-align: center;
+}
+
+/* Memberikan nomor urutan pada baris tabel */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#chart3 {
+  background-color: white;
+  border: solid transparent;
+  border-radius: 1rem;
+}
+
 
 
 /* SECTION-MONITORING DATA */
@@ -225,11 +239,15 @@ main{
 
 .section-product {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
   background-color: #9abccc;
   width: 12rem;
   height: 6rem;
   border-radius: 1rem;
+
 }
 .header-product {
   display: flex;
@@ -242,10 +260,17 @@ main{
   height: 1.5rem;
   margin-top: 0.5rem;
 }
+#valueProduct {
+  margin-top: 0.5rem;
+  font-size: 2.2rem;
+}
 
 .section-mqty {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
   background-color: #9abccc;
   width: 12rem;
   height: 6rem;
@@ -262,10 +287,17 @@ main{
   height: 1.5rem;
   margin-top: 0.5rem;
 }
+#valueMqty {
+  margin-top: 0.5rem;
+  font-size: 2.2rem;
+}
 
 .section-transaction {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
   background-color: #9abccc;
   width: 12rem;
   height: 6rem;
@@ -285,7 +317,10 @@ main{
 
 .section-rprice {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
   background-color: #9abccc;
   width: 12rem;
   height: 6rem;

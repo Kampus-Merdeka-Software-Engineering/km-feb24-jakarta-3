@@ -54,9 +54,28 @@
                 <div>
                     <canvas id="chart0"></canvas>
                 </div>                  
-                <div class="chart1"></div>
-                <div class="chart2"></div>
-                <div class="chart3"></div>
+                <div>
+                    <canvas id="chart1"></canvas>
+                </div>
+                <div>
+                    <table id="chart2">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="colspan">Top 5 products</th>
+                            </tr>
+                            <tr>
+                                <th>Product</th>
+                                <th>MQty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table rows will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <canvas id="chart3"></canvas>
+                </div>
                 <div class="chart4"></div>
             </div>
         </section>
@@ -73,11 +92,13 @@
                     <div class="header-product">
                         <p>Product</p>
                     </div>
+                    <div id="valueProduct"></div>
                 </div>
                 <div class="section-mqty">
                     <div class="header-mqty">
                         <p>MQTY</p>
                     </div>
+                    <div id="valueMqty"></div>
                 </div>
                 <div class="section-transaction">
                     <div class="header-transaction">

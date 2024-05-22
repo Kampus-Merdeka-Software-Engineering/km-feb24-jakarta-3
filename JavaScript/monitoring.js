@@ -102,3 +102,56 @@ document.getElementById('btnMonthly').addEventListener('click', () => {
 
 // Panggil fungsi untuk membuat chart awal dengan tampilan mingguan
 updateChart(groupDataByWeek);
+
+
+//MENAMPILKAN SCORE CARD PRODUCT
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('/data.json')
+      .then(response => response.json())
+      .then(data => {
+          // Melacak produk yang unik
+          const uniqueProducts = {};
+
+          data.forEach(item => {
+              uniqueProducts[item.Product] = true;
+          });
+
+          // Menghitung jumlah produk yang unik
+          const totalUniqueProducts = Object.keys(uniqueProducts).length;
+
+          // Menampilkan jumlah produk yang unik
+          const totalProductsContainer = document.getElementById('valueProduct');
+          totalProductsContainer.textContent = `${totalUniqueProducts}`;
+      })
+      .catch(error => console.error('Error fetching data:', error));
+});
+
+
+//MENAMPILKAN SCORE CARD MQTY
+// Fungsi untuk mengonversi angka menjadi format yang disingkat
+function formatNumber(number) {
+  if (number >= 1000000) {
+      return (number / 1000000).toFixed(1) + 'M';
+  } else if (number >= 1000) {
+      return (number / 1000).toFixed(1) + 'K';
+  } else {
+      return number;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+          // Menghitung jumlah total MQty dari semua produk
+          let totalMqty = data.reduce((accumulator, item) => {
+              return accumulator + item.MQty;
+          }, 0);
+
+          // Menampilkan jumlah total MQty dengan format singkat
+          const totalMqtyContainer = document.getElementById('valueMqty');
+          totalMqtyContainer.textContent = `${formatNumber(totalMqty)}`;
+      })
+      .catch(error => console.error('Error fetching data:', error));
+});
+
