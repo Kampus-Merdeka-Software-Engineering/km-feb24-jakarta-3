@@ -183,6 +183,17 @@ tr:nth-child(even) {
   border-radius: 1rem;
 }
 
+#chart4 {
+  background-color: white;
+  border: solid transparent;
+  border-radius: 1rem;
+}
+
+#chart5 {
+  background-color: white;
+  border: solid transparent;
+  border-radius: 1rem;
+}
 
 
 /* SECTION-MONITORING DATA */

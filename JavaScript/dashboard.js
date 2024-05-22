@@ -208,4 +208,121 @@ document.addEventListener('DOMContentLoaded', (event) => {
       })
       .catch(error => console.error('Error fetching data:', error));
   });
-   
+
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+    fetch('/data.json')
+      .then(response => response.json())
+      .then(data => {
+        // Mengelompokkan data berdasarkan lokasi
+        const groupedData = {};
+  
+        data.forEach(item => {
+          if (!groupedData[item.Location]) {
+            groupedData[item.Location] = 0;
+          }
+          groupedData[item.Location] += item.LineTotal;
+        });
+  
+        // Menyiapkan data untuk Chart.js
+        const labels = Object.keys(groupedData);
+        const datasets = [{
+          label: 'Total',
+          data: labels.map(location => groupedData[location]),
+          backgroundColor: labels.map((location, index) => {
+            const color = `hsl(${index * 60}, 70%, 50%)`; // Memberikan warna yang berbeda untuk setiap lokasi
+            return color;
+          }),
+          borderColor: labels.map((location, index) => {
+            const color = `hsl(${index * 60}, 70%, 50%)`; // Memberikan warna yang berbeda untuk setiap lokasi
+            return color;
+          }),
+          borderWidth: 1
+        }];
+  
+        const ctx = document.getElementById('chart4').getContext('2d');
+        salesChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: datasets
+          },
+          options: {
+            indexAxis: 'y',
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('/data.json')
+      .then(response => response.json())
+      .then(data => {
+        // Mengelompokkan data berdasarkan lokasi dan kategori
+        const groupedData = {};
+  
+        data.forEach(item => {
+          if (!groupedData[item.Location]) {
+            groupedData[item.Location] = {};
+          }
+          if (!groupedData[item.Location][item.Category]) {
+            groupedData[item.Location][item.Category] = 0;
+          }
+          groupedData[item.Location][item.Category] += item.LineTotal;
+        });
+  
+        // Menyiapkan data untuk Chart.js
+        const labels = Object.keys(groupedData);
+        const datasets = [];
+  
+        // Mendapatkan semua kategori unik
+        const allCategories = new Set();
+        labels.forEach(Location => {
+          Object.keys(groupedData[Location]).forEach(category => {
+            allCategories.add(category);
+          });
+        });
+  
+        // Mengatur warna untuk setiap kategori
+        const categoryColors = {};
+        Array.from(allCategories).forEach((category, index) => {
+          const color = `hsl(${index * 60}, 70%, 50%)`; // Memberikan warna yang berbeda untuk setiap kategori
+          categoryColors[category] = color;
+        });
+  
+        // Membuat dataset untuk setiap kategori
+        Array.from(allCategories).forEach(category => {
+          const data = labels.map(Location => groupedData[Location][category] || 0);
+          datasets.push({
+            label: category,
+            data: data,
+            backgroundColor: categoryColors[category],
+            borderColor: categoryColors[category],
+            borderWidth: 1
+          });
+        });
+  
+        const ctx = document.getElementById('chart5').getContext('2d');
+        salesChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: datasets
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  });
