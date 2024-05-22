@@ -3,6 +3,7 @@
     padding: 0;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -144,42 +145,34 @@ main{
 }
 
 #chart1 {
-  height: 15rem;
-  width: 22rem;
-  margin-top: 1.2rem;
   background-color: white;
 }
 
 #chart2 {
   height: 15rem;
   width: 22rem;
-  margin-top: 1.2rem;
   background-color: white;
   text-align: left;
   border-radius: 1rem;
 }
 .colspan {
   text-align: center;
+  border-radius: 1rem 1rem 0 0 ;
 }
 th, td {
   padding: 8px;
   text-align: left;
 }
-
 th {
   background-color: #f2f2f2;
 }
-
-/* Memberikan nomor urutan pada baris tabel */
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.chart3{
-  height: 15rem;
-  width: 15rem;
-  margin-top: 1.2rem;
+#chart3{
   background-color: white;
+  border-radius: 1rem;
 }
 
 #chart4{
