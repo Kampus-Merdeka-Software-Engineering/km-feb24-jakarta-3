@@ -90,10 +90,12 @@ main{
 
 .dashboard-content {
   display: grid;
-  grid-template-columns: auto auto;
-  gap: 1rem;
-
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kolom dengan lebar minimal 200px, dan mengisi fraksi dari sisa ruang */
+  grid-gap: 20px; /* Ruang antar item-grid */
+  align-items: center; /* Penempatan konten secara vertikal di tengah */
+  justify-content: center; /* Penempatan item-grid secara horizontal di tengah */
 }
+
 
 .dropdown {
   position: relative;
@@ -139,51 +141,66 @@ main{
 
 #chart0 {
   background-color: white;
-  border: solid transparent;
-  border-radius: 1rem;
 }
 
 #chart1 {
+  height: 15rem;
+  width: 22rem;
+  margin-top: 1.2rem;
   background-color: white;
-  border: solid transparent;
-  border-radius: 1rem;
 }
 
 #chart2 {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
+  height: 15rem;
+  width: 22rem;
+  margin-top: 1.2rem;
   background-color: white;
-  border: solid transparent;
-  border-radius: 1rem;
 }
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-th {
-  background-color: #f2f2f2;
-}
-
-.colspan {
-  text-align: center;
-}
-
-/* Memberikan nomor urutan pada baris tabel */
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-#chart3 {
+.chart3{
+  height: 15rem;
+  width: 15rem;
+  margin-top: 1.2rem;
   background-color: white;
-  border: solid transparent;
-  border-radius: 1rem;
 }
 
+#chart4{
+  height: 15rem;
+  width: 22rem;
+  margin-top: 1.2rem;
+  background-color: white;
+}
 
+.info_data{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.info_data .card {
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #69a9fe;
+  opacity: 0.6;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+}
+
+.filtering{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.filtering .filter {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #69a9fe;
+  opacity: 0.6;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+  margin: 10px;
+}
 
 /* SECTION-MONITORING DATA */
 #monitoringData {
