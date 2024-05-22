@@ -40,7 +40,23 @@
         <!-- DASHBOARD -->
         <section id="dashboard">
             <div class="header-dashboard">
-                <h1>Dashboard</h1>
+                <h1>VENDING <br>
+                    MACHINE
+                </h1>
+                <div class="info_data">
+                    <div class="card">
+                            <p>Product</p>
+                    </div>
+                    <div class="card">
+                            <p>MQTY</p>
+                    </div>
+                    <div class="card">
+                            <p>Transaction</p>
+                    </div>
+                    <div class="card">
+                            <p>RPrice</p>
+                    </div>
+                </div>
                 <!-- <div class="dropdown">
                     <button class="dropbtn">Location</button>
                     <div class="dropdown-content">
@@ -50,6 +66,15 @@
                     </div>
                 </div> -->
             </div>
+            <div class="filtering">
+                <ul>
+                    <div class="filter">Location</div>
+                    <div class="filter">Category</div>
+                    <div class="filter">TransDate</div>
+                    <div class="filter">Product</div>
+                    <div class="filter">Machine</div>
+                </ul>
+            </div>
             <div class="dashboard-content">
                 <div>
                     <canvas id="chart0"></canvas>
@@ -58,25 +83,15 @@
                     <canvas id="chart1"></canvas>
                 </div>
                 <div>
-                    <table id="chart2">
-                        <thead>
-                            <tr>
-                                <th colspan="2" class="colspan">Top 5 products</th>
-                            </tr>
-                            <tr>
-                                <th>Product</th>
-                                <th>MQty</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Table rows will be dynamically added here -->
-                        </tbody>
-                    </table>
+                    <canvas id="chart2"></canvas>
+                </div>
+                <div class="chart3">
+                    <h1>5 Product Tertinggi</h1>
+                    <div id="top5product"></div>
                 </div>
                 <div>
-                    <canvas id="chart3"></canvas>
+                    <canvas id="chart4"></canvas>
                 </div>
-                <div class="chart4"></div>
             </div>
         </section>
 
