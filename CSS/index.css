@@ -342,6 +342,10 @@ tr:nth-child(even) {
   height: 1.5rem;
   margin-top: 0.5rem;
 }
+#valueTransaction {
+  margin-top: 0.5rem;
+  font-size: 2.2rem;
+}
 
 .section-rprice {
   display: flex;
@@ -364,6 +368,10 @@ tr:nth-child(even) {
   width: 8rem;
   height: 1.5rem;
   margin-top: 0.5rem;
+}
+#valueRprice{
+  margin-top: 0.5rem;
+  font-size: 2.2rem;
 }
 
 #chartPenjualan {
