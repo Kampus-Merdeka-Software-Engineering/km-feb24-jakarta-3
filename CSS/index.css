@@ -380,6 +380,34 @@ tr:nth-child(even) {
   border-radius: 1rem;
 }
 
+/* ACTIVITY */
+.activityContent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-top: 0.6rem;
+}
+
+#lokasibtn {
+  width: 16rem;
+  height: 3rem;
+  border: solid transparent;
+  background-color: #9abccc;
+  border-radius: 0 1rem 1rem 0;
+  font-size: 1.4rem;
+}
+
+.dropdown {
+  margin-bottom: 1rem;
+}
+
+
 
 /* SECTION-ABOUT */
 #about {
@@ -521,6 +549,7 @@ tr:nth-child(even) {
   background-color: #5a94b2;
 }
 
+
 /* FOOTER */
 footer{
   position: relative;
@@ -539,7 +568,7 @@ footer{
 
 /* RESPONSIVE */
 /* mobile */
-@media (min-width: 600px){
+@media (max-width: 599px){
   html{
       background-color: brown;
       font-size: 0.5rem;
@@ -560,7 +589,7 @@ footer{
 }
 
 /* tablet */
-@media (min-width: 768px){
+@media (min-width: 600px) and (max-width: 767px){
   html{
       background-color:cornflowerblue;
       font-size: 0.7rem;
