@@ -75,7 +75,11 @@ main{
 #dashboard {
   display: flex;
   flex-direction: column;
-  padding: 5rem;
+  padding-top: 2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 5rem;
+  background-color: white;
 }
 
 .header-dashboard {
@@ -85,7 +89,8 @@ main{
 }
 
 #dashboard h1{
-  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
   color: #3C89AA;
 }
 
@@ -95,34 +100,6 @@ main{
   grid-gap: 20px; /* Ruang antar item-grid */
   align-items: center; /* Penempatan konten secara vertikal di tengah */
   justify-content: center; /* Penempatan item-grid secara horizontal di tengah */
-}
-
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 .dropbtn {
@@ -142,17 +119,36 @@ main{
 
 #chart0 {
   background-color: white;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  border-radius: 1rem;
+  
 }
 
 #chart1 {
   background-color: white;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  border-radius: 1rem;
 }
 
-#chart2 {
-  height: 15rem;
+#chart2{
+  background-color: white;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  border-radius: 1rem;
+}
+
+#chart3{
+  background-color: white;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  border-radius: 1rem;
+  width: 22rem;
+}
+
+#chart4 {
+  height: 22rem;
   width: 22rem;
   background-color: white;
   text-align: left;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 1rem;
 }
 .colspan {
@@ -170,52 +166,21 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#chart3{
+#chart5 {
   background-color: white;
+  border: solid transparent;
   border-radius: 1rem;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  height: 200px;
 }
 
-#chart4{
-  height: 15rem;
-  width: 22rem;
-  margin-top: 1.2rem;
-  background-color: white;
-}
-
-.info_data{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.info_data .card {
-  padding: 30px;
-  border-radius: 10px;
-  background-color: #69a9fe;
-  opacity: 0.6;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
-}
-
-.filtering{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.filtering .filter {
-  padding: 10px;
-  border-radius: 15px;
-  background-color: #69a9fe;
-  opacity: 0.6;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
-  margin: 10px;
-}
 
 /* SECTION-MONITORING DATA */
 #monitoringData {
-  padding: 5rem;
+  padding-top: 2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 5rem;
 }
 
 #monitoringData h1{
@@ -404,9 +369,32 @@ tr:nth-child(even) {
 }
 
 .dropdown {
+  position: relative;
+  display: inline-block;
   margin-bottom: 1rem;
 }
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 
 /* SECTION-ABOUT */

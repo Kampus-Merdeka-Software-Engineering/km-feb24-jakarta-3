@@ -1,3 +1,4 @@
+//MENAMPILKAN PENJUALAN BERDASARKAN CATEGORY
 document.addEventListener('DOMContentLoaded', (event) => {
   fetch('/data.json')
     .then(response => response.json())
@@ -62,6 +63,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 });
 
+
+//MENAMPILKAN PENJUALAN SETIAP MACHINE
 document.addEventListener('DOMContentLoaded', (event) => {
   fetch('/data.json')
     .then(response => response.json())
@@ -130,6 +133,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     .catch(error => console.error('Error fetching data:', error));
 });
 
+
+//MENAMPILKAN 5 PRODUCT TERTINGGI
 document.addEventListener('DOMContentLoaded', () => {
   fetch('/data.json')
     .then(response => response.json())
@@ -150,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .slice(0, 5);
 
       // Ambil tabel yang akan diisi
-      const tableBody = document.querySelector('#chart2 tbody');
+      const tableBody = document.querySelector('#chart4 tbody');
 
       // Tambahkan baris ke tabel untuk setiap produk
       sortedProducts.forEach(product => {
@@ -164,6 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => console.error('Error fetching data:', error));
 });
 
+
+//MENAMPILKAN TYPE TRANSAKSI
 document.addEventListener('DOMContentLoaded', () => {
   fetch('/data.json')
     .then(response => response.json())
@@ -195,17 +202,155 @@ document.addEventListener('DOMContentLoaded', () => {
             data: dataValues,
             backgroundColor: [
               'rgba(255, 99, 132, 0.7)', // Merah
-              'rgba(54, 162, 235, 0.7)', // Biru
-              'rgba(255, 206, 86, 0.7)' // Kuning
+              'rgba(54, 162, 235, 0.7)' // Biru
+              
             ],
             borderWidth: 1
           }]
         },
         options: {
-          responsive: true
+          responsive: false
         }
       });
     })
     .catch(error => console.error('Error fetching data:', error));
 });
- 
+
+
+//MENAMPILKAN PENJUALAN PERKATEGORI DI BERBAGAI LOKASI
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('/data.json')
+    .then(response => response.json())
+    .then(data => {
+      // Mengelompokkan data berdasarkan lokasi dan kategori
+      const groupedData = {};
+
+      data.forEach(item => {
+        if (!groupedData[item.Location]) {
+          groupedData[item.Location] = {};
+        }
+        if (!groupedData[item.Location][item.Category]) {
+          groupedData[item.Location][item.Category] = 0;
+        }
+        groupedData[item.Location][item.Category] += item.LineTotal;
+      });
+
+      // Menyiapkan data untuk Chart.js
+      const labels = Object.keys(groupedData);
+      const datasets = [];
+
+      // Mendapatkan semua kategori unik
+      const allCategories = new Set();
+      labels.forEach(Location => {
+        Object.keys(groupedData[Location]).forEach(category => {
+          allCategories.add(category);
+        });
+      });
+
+      // Mengatur warna untuk setiap kategori
+      const categoryColors = {};
+      Array.from(allCategories).forEach((category, index) => {
+        const color = `hsl(${index * 60}, 70%, 50%)`; // Memberikan warna yang berbeda untuk setiap kategori
+        categoryColors[category] = color;
+      });
+
+      // Membuat dataset untuk setiap kategori
+      Array.from(allCategories).forEach(category => {
+        const data = labels.map(Location => groupedData[Location][category] || 0);
+        datasets.push({
+          label: category,
+          data: data,
+          backgroundColor: categoryColors[category],
+          borderColor: categoryColors[category],
+          borderWidth: 1
+        });
+      });
+
+      const ctx = document.getElementById('chart2').getContext('2d');
+      salesChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: datasets
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    })
+    .catch(error => console.error('Error fetching data:', error));
+});
+
+
+//MENAMPILKAN TOTAL PENJUALAN DI SETIAP LOKASI
+document.addEventListener('DOMContentLoaded', (event) => {
+  fetch('/data.json')
+    .then(response => response.json())
+    .then(data => {
+      // Mengelompokkan data berdasarkan lokasi
+      const groupedData = {};
+
+      data.forEach(item => {
+        if (!groupedData[item.Location]) {
+          groupedData[item.Location] = 0;
+        }
+        groupedData[item.Location] += item.LineTotal;
+      });
+
+      // Menyiapkan data untuk Chart.js
+      const labels = Object.keys(groupedData);
+      const dataValues = labels.map(location => groupedData[location]);
+      const backgroundColors = labels.map((location, index) => {
+        return `hsl(${index * 60}, 70%, 50%)`; // Memberikan warna yang berbeda untuk setiap lokasi
+      });
+
+      const canvas = document.getElementById('chart5');
+      canvas.height = 242;
+      const ctx = canvas.getContext('2d');
+      salesChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels, // Nama lokasi di sumbu y
+          datasets: [{
+            data: dataValues,
+            backgroundColor: backgroundColors,
+            borderColor: backgroundColors,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          indexAxis: 'y', // Menampilkan bar horizontal
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+          plugins: {
+            legend: {
+              labels: {
+                generateLabels: (chart) => {
+                  const data = chart.data;
+                  if (data.labels.length && data.datasets.length) {
+                    return data.labels.map((label, i) => ({
+                      text: label,
+                      fillStyle: data.datasets[0].backgroundColor[i],
+                      strokeStyle: data.datasets[0].borderColor[i],
+                      lineWidth: data.datasets[0].borderWidth,
+                      hidden: isNaN(data.datasets[0].data[i]) || chart.getDatasetMeta(0).data[i].hidden,
+                      index: i
+                    }));
+                  }
+                  return [];
+                }
+              }
+            }
+          }
+        }
+      });
+    })
+    .catch(error => console.error('Error fetching data:', error));
+});
