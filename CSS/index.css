@@ -503,8 +503,57 @@ tr:nth-child(even) {
   width: 658px;
   height: 197px;
   border: solid transparent;
-  background-color: #91c8e2; /* Opsional: Menambahkan warna latar */
+  background-color: white; /* Opsional: Menambahkan warna latar */
   border-radius: 20px; /* Menambahkan sudut tumpul */
+  margin-bottom: 1rem; 
+}
+
+.personalization-content {
+  width: 482px;
+  height: 110px;
+  border: solid transparent;
+  background-color: white; /* Opsional: Menambahkan warna latar */
+  border-radius: 20px; /* Menambahkan sudut tumpul */
+  margin-bottom: 1rem; 
+}
+
+.personalization-content p {
+  color: #72ACC6; /* Ganti dengan warna yang diinginkan */
+  font-size: 1rem; /* Ganti dengan ukuran font yang diinginkan */
+  margin-left: 1rem;
+  margin-top: 2rem;
+}
+
+.time_language-content {
+  width: 482px;
+  height: 110px;
+  border: solid transparent;
+  background-color: white; /* Opsional: Menambahkan warna latar */
+  border-radius: 20px; /* Menambahkan sudut tumpul */
+  margin-bottom: 1rem; 
+}
+
+.time_language-content p {
+  color: #72ACC6; /* Ganti dengan warna yang diinginkan */
+  font-size: 1rem; /* Ganti dengan ukuran font yang diinginkan */
+  margin-left: 1rem;
+  margin-top: 2rem;
+}
+
+.update-content {
+  width: 482px;
+  height: 110px;
+  border: solid transparent;
+  background-color: white; /* Opsional: Menambahkan warna latar */
+  border-radius: 20px; /* Menambahkan sudut tumpul */
+  margin-bottom: 1rem; 
+}
+
+.update-content p {
+  color: #72ACC6; /* Ganti dengan warna yang diinginkan */
+  font-size: 1rem; /* Ganti dengan ukuran font yang diinginkan */
+  margin-left: 1rem;
+  margin-top: 2rem;
 }
 
 /* FOOTER */
