@@ -1,15 +1,77 @@
-//MENAMPILKAN PENJUALAN BERDASARKAN CATEGORY
 document.addEventListener('DOMContentLoaded', (event) => {
   fetch('/data.json')
     .then(response => response.json())
     .then(data => {
+
+
+      //MENAMPILKAN TYPE TRANSAKSI
+      const transactionTypes = {};
+      data.forEach(item => {
+        if (!transactionTypes[item.Type]) {
+          transactionTypes[item.Type] = 0;
+        }
+        transactionTypes[item.Type]++;
+      });
+      // Menyiapkan data untuk Chart.js
+      const Transactionlabels = Object.keys(transactionTypes);
+      const dataValues = Object.values(transactionTypes);
+
+      // Ambil elemen canvas untuk chart
+      const ctxTransaction = document.getElementById('chart3').getContext('2d');
+      // Buat chart pie
+      const transactionTypeChart = new Chart(ctxTransaction, {
+        type: 'pie',
+        data: {
+          labels: Transactionlabels,
+          datasets: [{
+            label: 'Transaction Type Distribution',
+            data: dataValues,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.7)', // Merah
+              'rgba(54, 162, 235, 0.7)' // Biru
+              
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: false
+        }
+      });
+
+
+  //MENAMPILKAN 5 PRODUCT TERATAS
+      // Mengelompokkan data berdasarkan produk dan menghitung total MQty
+      const productSales = {};
+      data.forEach(item => {
+        if (!productSales[item.Product]) {
+          productSales[item.Product] = 0;
+        }
+        productSales[item.Product] += item.MQty;
+      });
+      // Mengubah object menjadi array dan mengurutkan berdasarkan MQty
+      const sortedProducts = Object.entries(productSales)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5);
+        // Ambil tabel yang akan diisi
+      const tableBody = document.querySelector('#chart4 tbody');
+      // Tambahkan baris ke tabel untuk setiap produk
+      sortedProducts.forEach(product => {
+        const row = `<tr>
+                      <td>${product[0]}</td>
+                      <td>${product[1]}</td>
+                    </tr>`;
+        tableBody.innerHTML += row;
+      });
+
+
+  //MENAMPILKAN PENJUALAN BERDASARKAN CATEGORY
       const salesData = {
         food: 0,
         carbonated: 0,
         nonCarbonated: 0,
         water: 0
       };
-
       data.forEach(item => {
         switch(item.Category.toLowerCase()) {
           case 'food':
@@ -26,9 +88,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             break;
         }
       });
-
-      const ctx = document.getElementById('chart0').getContext('2d');
-      const salesChart = new Chart(ctx, {
+      const ctxCategory = document.getElementById('chart0').getContext('2d');
+      const salesChartCategory = new Chart(ctxCategory, {
         type: 'bar',
         data: {
           labels: ['Food', 'Carbonated', 'Non Carbonated', 'Water'],
@@ -58,20 +119,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
           }
         }
       });
-    })
-    .catch(error => console.error('Error fetching data:', error));
-
-});
 
 
-//MENAMPILKAN PENJUALAN SETIAP MACHINE
-document.addEventListener('DOMContentLoaded', (event) => {
-  fetch('/data.json')
-    .then(response => response.json())
-    .then(data => {
-      // Mengelompokkan data berdasarkan lokasi dan mesin
+  //MENAMPILKAN PENJUALAN SETIAP MACHINE
       const groupedData = {};
-
       data.forEach(item => {
         if (!groupedData[item.Machine]) {
           groupedData[item.Machine] = {};
@@ -81,29 +132,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
         groupedData[item.Machine][item.Location] += item.LineTotal;
       });
-
       // Menyiapkan data untuk Chart.js
-      const labels = Object.keys(groupedData);
+      const machinelabels = Object.keys(groupedData);
       const datasets = [];
-
       // Mendapatkan semua mesin unik
       const allLocation = new Set();
-      labels.forEach(Machine => {
+      machinelabels.forEach(Machine => {
         Object.keys(groupedData[Machine]).forEach(location => {
           allLocation.add(location);
         });
       });
-
       // Mengatur warna untuk setiap mesin
       const locationColors = {};
       Array.from(allLocation).forEach((location, index) => {
         const color = `hsl(${index * 60}, 70%, 50%)`; // Memberikan warna yang berbeda untuk setiap mesin
         locationColors[location] = color;
       });
-
       // Membuat dataset untuk setiap mesin
       Array.from(allLocation).forEach(location => {
-        const data = labels.map(machine => groupedData[machine][location] || 0);
+        const data = machinelabels.map(machine => groupedData[machine][location] || 0);
         datasets.push({
           label: location,
           data: data,
@@ -112,12 +159,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
           borderWidth: 1
         });
       });
-
-      const ctx = document.getElementById('chart1').getContext('2d');
-      salesChart = new Chart(ctx, {
+      const ctxMachine = document.getElementById('chart1').getContext('2d');
+      const salesChartMachine = new Chart(ctxMachine, {
         type: 'bar',
         data: {
-          labels: labels,
+          labels: machinelabels,
           datasets: datasets
         },
         options: {
@@ -129,194 +175,86 @@ document.addEventListener('DOMContentLoaded', (event) => {
           }
         }
       });
-    })
-    .catch(error => console.error('Error fetching data:', error));
-});
 
 
-//MENAMPILKAN 5 PRODUCT TERTINGGI
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('/data.json')
-    .then(response => response.json())
-    .then(data => {
-      // Mengelompokkan data berdasarkan produk dan menghitung total MQty
-      const productSales = {};
-
-      data.forEach(item => {
-        if (!productSales[item.Product]) {
-          productSales[item.Product] = 0;
-        }
-        productSales[item.Product] += item.MQty;
-      });
-
-      // Mengubah object menjadi array dan mengurutkan berdasarkan MQty
-      const sortedProducts = Object.entries(productSales)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 5);
-
-      // Ambil tabel yang akan diisi
-      const tableBody = document.querySelector('#chart4 tbody');
-
-      // Tambahkan baris ke tabel untuk setiap produk
-      sortedProducts.forEach(product => {
-        const row = `<tr>
-                      <td>${product[0]}</td>
-                      <td>${product[1]}</td>
-                    </tr>`;
-        tableBody.innerHTML += row;
-      });
-    })
-    .catch(error => console.error('Error fetching data:', error));
-});
-
-
-//MENAMPILKAN TYPE TRANSAKSI
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('/data.json')
-    .then(response => response.json())
-    .then(data => {
-      // Menghitung distribusi tipe transaksi
-      const transactionTypes = {};
-      
-      data.forEach(item => {
-        if (!transactionTypes[item.Type]) {
-          transactionTypes[item.Type] = 0;
-        }
-        transactionTypes[item.Type]++;
-      });
-
-      // Menyiapkan data untuk Chart.js
-      const labels = Object.keys(transactionTypes);
-      const dataValues = Object.values(transactionTypes);
-
-      // Ambil elemen canvas untuk chart
-      const ctx = document.getElementById('chart3').getContext('2d');
-
-      // Buat chart pie
-      const transactionTypeChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: 'Transaction Type Distribution',
-            data: dataValues,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.7)', // Merah
-              'rgba(54, 162, 235, 0.7)' // Biru
-              
-            ],
+  //MENAMPILKAN PENJUALAN PERKATEGORI DI BERBAGAI LOKASI
+        // Mengelompokkan data berdasarkan lokasi dan kategori
+        const lokasiCategory = {};
+        data.forEach(item => {
+          if (!lokasiCategory[item.Location]) {
+            lokasiCategory[item.Location] = {};
+          }
+          if (!lokasiCategory[item.Location][item.Category]) {
+            lokasiCategory[item.Location][item.Category] = 0;
+          }
+          lokasiCategory[item.Location][item.Category] += item.LineTotal;
+        });
+        // Menyiapkan data untuk Chart.js
+        const categoryWithLokasilabels = Object.keys(lokasiCategory);
+        const categoryWithLokasidatasets = [];
+        // Mendapatkan semua kategori unik
+        const allCategories = new Set();
+        categoryWithLokasilabels.forEach(Location => {
+          Object.keys(lokasiCategory[Location]).forEach(category => {
+            allCategories.add(category);
+          });
+        });
+        // Mengatur warna untuk setiap kategori
+        const categoryColors = {};
+        Array.from(allCategories).forEach((category, index) => {
+          const color = `hsl(${index * 60}, 70%, 50%)`; // Memberikan warna yang berbeda untuk setiap kategori
+          categoryColors[category] = color;
+        });
+        // Membuat dataset untuk setiap kategori
+        Array.from(allCategories).forEach(category => {
+          const data = categoryWithLokasilabels.map(Location => lokasiCategory[Location][category] || 0);
+          categoryWithLokasidatasets.push({
+            label: category,
+            data: data,
+            backgroundColor: categoryColors[category],
+            borderColor: categoryColors[category],
             borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: false
-        }
-      });
-    })
-    .catch(error => console.error('Error fetching data:', error));
-});
-
-
-//MENAMPILKAN PENJUALAN PERKATEGORI DI BERBAGAI LOKASI
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('/data.json')
-    .then(response => response.json())
-    .then(data => {
-      // Mengelompokkan data berdasarkan lokasi dan kategori
-      const groupedData = {};
-
-      data.forEach(item => {
-        if (!groupedData[item.Location]) {
-          groupedData[item.Location] = {};
-        }
-        if (!groupedData[item.Location][item.Category]) {
-          groupedData[item.Location][item.Category] = 0;
-        }
-        groupedData[item.Location][item.Category] += item.LineTotal;
-      });
-
-      // Menyiapkan data untuk Chart.js
-      const labels = Object.keys(groupedData);
-      const datasets = [];
-
-      // Mendapatkan semua kategori unik
-      const allCategories = new Set();
-      labels.forEach(Location => {
-        Object.keys(groupedData[Location]).forEach(category => {
-          allCategories.add(category);
+          });
         });
-      });
-
-      // Mengatur warna untuk setiap kategori
-      const categoryColors = {};
-      Array.from(allCategories).forEach((category, index) => {
-        const color = `hsl(${index * 60}, 70%, 50%)`; // Memberikan warna yang berbeda untuk setiap kategori
-        categoryColors[category] = color;
-      });
-
-      // Membuat dataset untuk setiap kategori
-      Array.from(allCategories).forEach(category => {
-        const data = labels.map(Location => groupedData[Location][category] || 0);
-        datasets.push({
-          label: category,
-          data: data,
-          backgroundColor: categoryColors[category],
-          borderColor: categoryColors[category],
-          borderWidth: 1
-        });
-      });
-
-      const ctx = document.getElementById('chart2').getContext('2d');
-      salesChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: labels,
-          datasets: datasets
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
+        const ctxCategoryWithLokasi = document.getElementById('chart2').getContext('2d');
+        salesChart = new Chart(ctxCategoryWithLokasi, {
+          type: 'bar',
+          data: {
+            labels: categoryWithLokasilabels,
+            datasets: categoryWithLokasidatasets
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
             }
           }
-        }
-      });
-    })
-    .catch(error => console.error('Error fetching data:', error));
-});
-
-
-//MENAMPILKAN TOTAL PENJUALAN DI SETIAP LOKASI
-document.addEventListener('DOMContentLoaded', (event) => {
-  fetch('/data.json')
-    .then(response => response.json())
-    .then(data => {
+        });
+  //MENAMPILKAN TOTAL PENJUALAN DI SETIAP LOKASI
       // Mengelompokkan data berdasarkan lokasi
-      const groupedData = {};
-
+      const groupedLokasi = {};
       data.forEach(item => {
-        if (!groupedData[item.Location]) {
-          groupedData[item.Location] = 0;
+        if (!groupedLokasi[item.Location]) {
+          groupedLokasi[item.Location] = 0;
         }
-        groupedData[item.Location] += item.LineTotal;
+        groupedLokasi[item.Location] += item.LineTotal;
       });
-
       // Menyiapkan data untuk Chart.js
-      const labels = Object.keys(groupedData);
-      const dataValues = labels.map(location => groupedData[location]);
-      const backgroundColors = labels.map((location, index) => {
+      const lokasilabels = Object.keys(groupedLokasi);
+      const dataValuesLokasi = lokasilabels.map(location => groupedLokasi[location]);
+      const backgroundColors = lokasilabels.map((location, index) => {
         return `hsl(${index * 60}, 70%, 50%)`; // Memberikan warna yang berbeda untuk setiap lokasi
       });
-
       const canvas = document.getElementById('chart5');
       canvas.height = 242;
       const ctx = canvas.getContext('2d');
       salesChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: labels, // Nama lokasi di sumbu y
+          labels: lokasilabels, // Nama lokasi di sumbu y
           datasets: [{
-            data: dataValues,
+            data: dataValuesLokasi,
             backgroundColor: backgroundColors,
             borderColor: backgroundColors,
             borderWidth: 1
@@ -351,6 +289,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
           }
         }
       });
+
     })
     .catch(error => console.error('Error fetching data:', error));
+
 });
+
