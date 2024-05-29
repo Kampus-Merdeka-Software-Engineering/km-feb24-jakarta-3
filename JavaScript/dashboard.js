@@ -299,3 +299,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 });
 
+window.onload = function(){
+  const selectCountry = document.getElementById('lokasi'),
+        select = document.querySelectorAll('select')
+}

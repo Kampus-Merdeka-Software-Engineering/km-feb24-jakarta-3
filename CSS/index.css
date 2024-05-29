@@ -94,6 +94,23 @@ main{
   color: #3C89AA;
 }
 
+.btnlokasiDashboard {
+  margin-bottom: 1.2rem;
+}
+
+.btnlokasiDashboard select {
+  width: 13rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  color: #72ACC6;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
 .dashboard-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kolom dengan lebar minimal 200px, dan mengisi fraksi dari sisa ruang */
@@ -358,11 +375,49 @@ tr:nth-child(even) {
 .filter {
   display: flex;
   flex-direction: column;
+  gap: 1.2rem;
   margin-left: 1rem;
   margin-top: 0.6rem;
 }
 
-#lokasibtn {
+.btnLokasiMonitoring select{
+  width: 15rem;
+  padding: 1rem;
+  background-color: #9abccc;
+  color: black;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.btnMachineMonitoring select{
+  width: 15rem;
+  padding: 1rem;
+  background-color: #9abccc;
+  color: black;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.btnCategoryMonitoring select{
+  width: 15rem;
+  padding: 1rem;
+  background-color: #9abccc;
+  color: black;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+/* #lokasibtn {
   width: 16rem;
   height: 3rem;
   border: solid transparent;
@@ -419,7 +474,7 @@ tr:nth-child(even) {
 
 .dropdown button.selected {
   background-color: #ddd;
-}
+} */
 
 
 /* SECTION-ABOUT */

@@ -45,6 +45,15 @@
         <section id="dashboard">
             <div class="header-dashboard">
                 <h1>Dashboard</h1>
+                <form action="" class="btnlokasiDashboard">
+                    <select name="lokasi" id="lokasiDashboard">
+                        <option value="">All Location</option>
+                        <option value="">Gutten Plans</option>
+                        <option value="">EB Public Library</option>
+                        <option value="">Brunswick Sq Mall</option>
+                        <option value="">Earle Asphalt</option>
+                    </select>
+                </form>
             </div>
             <div class="dashboard-content">
                 <div>
@@ -128,17 +137,36 @@
                     <canvas id="chartPenjualan" width="820px"></canvas>
                 </div>
                 <div class="filter">
-                    <div class="dropdown">
-                        <button id="lokasibtn">Lokasi</button>
-                        <div class="dropdown-content">
-                          <a href="#">All</a>
-                          <a href="#">Gutten Plans</a>
-                          <a href="#">EB Public Library</a>
-                          <a href="#">Brunswick Sq Mall</a>
-                          <a href="#">Earle Asphalt </a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
+                    <form action="" class="btnLokasiMonitoring">
+                        <select name="lokasi" id="lokasiMonitoring">
+                            <option value="">All Location</option>
+                            <option value="">Gutten Plans</option>
+                            <option value="">EB Public Library</option>
+                            <option value="">Brunswick Sq Mall</option>
+                            <option value="">Earle Asphalt</option>
+                        </select>
+                    </form>
+                    <form action="" class="btnMachineMonitoring">
+                        <select name="lokasi" id="machineMonitoring">
+                            <option value="">All Machine</option>
+                            <option value="">GuttenPlans x1367</option>
+                            <option value="">EB Public Library x1380</option>
+                            <option value="">BSQ Mall x1364 - Zales</option>
+                            <option value="">BSQ Mall x1366 - ATT</option>
+                            <option value="">Earle Asphalt x1371</option>
+                        </select>
+                    </form>
+                    <form action="" class="btnCategoryMonitoring">
+                        <select name="lokasi" id="categoryMonitoring">
+                            <option value="">All Category</option>
+                            <option value="">Carbonated</option>
+                            <option value="">Food</option>
+                            <option value="">Non-carbonated</option>
+                            <option value="">Water</option>
+                        </select>
+                    </form>
+                </div>
+                    <!-- <div class="dropdown">
                         <button id="machinebtn">Machine</button>
                         <div class="dropdown-content">
                           <a href="#">All</a>
@@ -158,7 +186,7 @@
                           <a href="#">Non-carbonated</a>
                           <a href="#">Water</a>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="dropdown">
                         <button id="lokasibtn">Produk</button>
                         <div class="dropdown-content">
