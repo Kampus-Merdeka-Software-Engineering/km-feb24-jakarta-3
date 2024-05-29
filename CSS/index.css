@@ -505,9 +505,14 @@ tr:nth-child(even) {
   border: solid transparent;
   border-radius: 2rem;
   background-color: #72ACC6;
-  color: white;
+  color: black;
+  transition: color 0.1s ease;
   width: 12rem;
   height: 3rem;
+}
+
+.name:hover{
+  color: white;
 }
 
 .name p {
