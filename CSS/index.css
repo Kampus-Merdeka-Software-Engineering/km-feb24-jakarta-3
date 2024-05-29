@@ -117,33 +117,33 @@ main{
 }
 
 
-#chart0 {
+#salesByCategory {
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 1rem;
   
 }
 
-#chart1 {
+#chartMahcine {
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 1rem;
 }
 
-#chart2{
+#lokasiByCategory{
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 1rem;
 }
 
-#chart3{
+#salesByLokasi{
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 1rem;
   width: 22rem;
 }
 
-#chart4 {
+#typeTransaksi {
   height: 22rem;
   width: 22rem;
   background-color: white;
@@ -166,12 +166,13 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#chart5 {
+#topProduct {
   background-color: white;
   border: solid transparent;
   border-radius: 1rem;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
-  height: 200px;
+  height: 350px;
+  width: 350px;
 }
 
 
@@ -369,6 +370,22 @@ tr:nth-child(even) {
   border-radius: 0 1rem 1rem 0;
   font-size: 1.4rem;
 }
+#machinebtn {
+  width: 16rem;
+  height: 3rem;
+  border: solid transparent;
+  background-color: #9abccc;
+  border-radius: 0 1rem 1rem 0;
+  font-size: 1.4rem;
+}
+#kategoribtn {
+  width: 16rem;
+  height: 3rem;
+  border: solid transparent;
+  background-color: #9abccc;
+  border-radius: 0 1rem 1rem 0;
+  font-size: 1.4rem;
+}
 
 .dropdown {
   position: relative;
@@ -392,10 +409,16 @@ tr:nth-child(even) {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.dropdown button.selected {
+  background-color: #ddd;
 }
 
 

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       const dataValues = Object.values(transactionTypes);
 
       // Ambil elemen canvas untuk chart
-      const ctxTransaction = document.getElementById('chart3').getContext('2d');
+      const ctxTransaction = document.getElementById('typeTransaksi').getContext('2d');
       // Buat chart pie
       const transactionTypeChart = new Chart(ctxTransaction, {
         type: 'pie',
@@ -42,27 +42,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   //MENAMPILKAN 5 PRODUCT TERATAS
       // Mengelompokkan data berdasarkan produk dan menghitung total MQty
-      const productSales = {};
-      data.forEach(item => {
-        if (!productSales[item.Product]) {
-          productSales[item.Product] = 0;
-        }
-        productSales[item.Product] += item.MQty;
-      });
-      // Mengubah object menjadi array dan mengurutkan berdasarkan MQty
-      const sortedProducts = Object.entries(productSales)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 5);
-        // Ambil tabel yang akan diisi
-      const tableBody = document.querySelector('#chart4 tbody');
-      // Tambahkan baris ke tabel untuk setiap produk
-      sortedProducts.forEach(product => {
-        const row = `<tr>
-                      <td>${product[0]}</td>
-                      <td>${product[1]}</td>
-                    </tr>`;
-        tableBody.innerHTML += row;
-      });
+  const productSales = {};
+  // Process data and calculate total quantity for each product
+  data.forEach(item => {
+    if (!productSales[item.Product]) {
+      productSales[item.Product] = 0;
+    }
+    productSales[item.Product] += item.MQty;
+  });
+
+  // Sort products by quantity in descending order
+  const sortedProducts = Object.entries(productSales)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5);
+
+  const tableBody = document.getElementById('topProduct');
+
+  // Populate table with top 5 products
+  sortedProducts.forEach(product => {
+    const row = `<tr>
+                  <td>${product[0]}</td>
+                  <td>${product[1]}</td>
+                </tr>`;
+    tableBody.innerHTML += row;
+  });
+
 
 
   //MENAMPILKAN PENJUALAN BERDASARKAN CATEGORY
@@ -88,7 +92,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             break;
         }
       });
-      const ctxCategory = document.getElementById('chart0').getContext('2d');
+      const ctxCategory = document.getElementById('salesByCategory').getContext('2d');
       const salesChartCategory = new Chart(ctxCategory, {
         type: 'bar',
         data: {
@@ -159,7 +163,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           borderWidth: 1
         });
       });
-      const ctxMachine = document.getElementById('chart1').getContext('2d');
+      const ctxMachine = document.getElementById('chartMahcine').getContext('2d');
       const salesChartMachine = new Chart(ctxMachine, {
         type: 'bar',
         data: {
@@ -216,7 +220,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             borderWidth: 1
           });
         });
-        const ctxCategoryWithLokasi = document.getElementById('chart2').getContext('2d');
+        const ctxCategoryWithLokasi = document.getElementById('lokasiByCategory').getContext('2d');
         salesChart = new Chart(ctxCategoryWithLokasi, {
           type: 'bar',
           data: {
@@ -246,7 +250,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       const backgroundColors = lokasilabels.map((location, index) => {
         return `hsl(${index * 60}, 70%, 50%)`; // Memberikan warna yang berbeda untuk setiap lokasi
       });
-      const canvas = document.getElementById('chart5');
+      const canvas = document.getElementById('salesByLokasi');
       canvas.height = 242;
       const ctx = canvas.getContext('2d');
       salesChart = new Chart(ctx, {
