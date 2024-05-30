@@ -589,58 +589,127 @@ tr:nth-child(even) {
   width: 658px;
   height: 197px;
   border: solid transparent;
-  background-color: white;
+  background-color: #E1EEF3;
   border-radius: 20px; 
   margin-bottom: 1rem; 
+  position: relative;
+}
+
+.setting-content p {
+  color: #3C89AA; 
+  font-size: 1.5rem; 
+  margin-left: 2.5rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.phone-image {
+  width: 81px; 
+  height: 72px; 
+  position: absolute; 
+  top: 4rem;
+  left: 2rem;
+}
+
+.laptop-image {
+  width: 90px; 
+  height: 81px; 
+  position: absolute; 
+  top: 4rem;
+  left: 11rem;
+}
+
+.tablet-image {
+  width: 68px; 
+  height: 79px; 
+  position: absolute; 
+  top: 4rem;
+  left: 21rem;
+}
+
+.pc-image {
+  width: 91px; 
+  height: 71px; 
+  position: absolute; 
+  top: 4rem;
+  left: 31rem;
 }
 
 .personalization-content {
   width: 482px;
   height: 110px;
   border: solid transparent;
-  background-color: white; 
+  background-color: #E1EEF3; 
   border-radius: 20px; 
   margin-bottom: 1rem; 
+  position: relative;
 }
 
 .personalization-content p {
-  color: #72ACC6; 
+  color: #3C89AA; 
   font-size: 1rem; 
-  margin-left: 1rem;
-  margin-top: 2rem;
+  margin-left: 6.5rem;
+  margin-top: 2.5rem;
+}
+
+.personalization-image {
+  width: 73px; 
+  height: 72px; 
+  position: absolute; 
+  top: 1rem;
+  left: 1rem;
 }
 
 .time_language-content {
   width: 482px;
   height: 110px;
   border: solid transparent;
-  background-color: white;
+  background-color: #E1EEF3;
   border-radius: 20px;
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
+  position: relative; 
 }
 
 .time_language-content p {
-  color: #72ACC6; 
+  color: #3C89AA; 
   font-size: 1rem; 
-  margin-left: 1rem;
-  margin-top: 2rem;
+  margin-left: 6.5rem;
+  margin-top: 2.5rem;
+}
+
+.time_language-image {
+  width: 78px; 
+  height: 62px; 
+  position: absolute; 
+  top: 2rem;
+  left: 1rem;
 }
 
 .update-content {
   width: 482px;
   height: 110px;
   border: solid transparent;
-  background-color: white; 
+  background-color: #E1EEF3; 
   border-radius: 20px; 
   margin-bottom: 1rem; 
+  position: relative;
 }
 
 .update-content p {
-  color: #72ACC6; 
+  color: #3C89AA; 
   font-size: 1rem; 
-  margin-left: 1rem;
-  margin-top: 2rem;
+  margin-left: 6.5rem;
+  margin-top: 2.5rem;
 }
+
+.update-image {
+  width: 63px; 
+  height: 49px; 
+  position: absolute; 
+  top: 2rem;
+  left: 1rem;
+}
+
 
 /* FOOTER */
 footer{
