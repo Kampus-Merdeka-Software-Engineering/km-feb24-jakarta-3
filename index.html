@@ -7,7 +7,20 @@
     <link rel="stylesheet" href="./CSS/index.css">
     
     <title>Document</title>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"/>
+
+    <!-- jQuery Pastikan jQuery berada pada paling atas saat pakai datatables -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <!-- DataTables Search Highlight -->
+    <script src="https://cdn.datatables.net/plug-ins/1.11.5/features/searchHighlight/dataTables.searchHighlight.min.js"></script>
+    <!-- jQuery Highlight -->
+    <script src="https://bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
 
 </head>
 <body>
@@ -72,16 +85,17 @@
                     <table id="topProduct">
                         <thead>
                             <tr>
-                                <th colspan="2" class="colspan">Top 5 products</th>
+                                <th colspan="3" class="colspan">Top 5 products</th>
                             </tr>
                             <tr>
+                                <th>Location</th>
                                 <th>Product</th>
                                 <th>MQty</th>
                             </tr>
+                            <tbody>
+                                
+                            </tbody>
                         </thead>
-                        <tbody>
-                            <!-- Table rows will be dynamically added here -->
-                        </tbody>
                     </table>
                 </div>
                 <div>
@@ -165,36 +179,6 @@
                             <option value="">Water</option>
                         </select>
                     </form>
-                </div>
-                    <!-- <div class="dropdown">
-                        <button id="machinebtn">Machine</button>
-                        <div class="dropdown-content">
-                          <a href="#">All</a>
-                          <a href="#">GuttenPlans x1367</a>
-                          <a href="#">EB Public Library x1380</a>
-                          <a href="#">BSQ Mall x1364 - Zales</a>
-                          <a href="#">BSQ Mall x1366 - ATT</a>
-                          <a href="#">Earle Asphalt x1371</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <button id="kategoribtn">Kategori</button>
-                        <div class="dropdown-content">
-                          <a href="#">All</a>
-                          <a href="#">Carbonated</a>
-                          <a href="#">Food</a>
-                          <a href="#">Non-carbonated</a>
-                          <a href="#">Water</a>
-                        </div>
-                    </div> -->
-                    <!-- <div class="dropdown">
-                        <button id="lokasibtn">Produk</button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </section>

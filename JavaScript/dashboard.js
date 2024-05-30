@@ -42,30 +42,54 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   //MENAMPILKAN 5 PRODUCT TERATAS
       // Mengelompokkan data berdasarkan produk dan menghitung total MQty
-  const productSales = {};
-  // Process data and calculate total quantity for each product
-  data.forEach(item => {
-    if (!productSales[item.Product]) {
-      productSales[item.Product] = 0;
-    }
-    productSales[item.Product] += item.MQty;
-  });
+      const locationProductSales = {};
 
-  // Sort products by quantity in descending order
-  const sortedProducts = Object.entries(productSales)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 5);
-
-  const tableBody = document.getElementById('topProduct');
-
-  // Populate table with top 5 products
-  sortedProducts.forEach(product => {
-    const row = `<tr>
-                  <td>${product[0]}</td>
-                  <td>${product[1]}</td>
-                </tr>`;
-    tableBody.innerHTML += row;
-  });
+      data.forEach(item => {
+        if (!locationProductSales[item.Location]) {
+          locationProductSales[item.Location] = {};
+        }
+        if (!locationProductSales[item.Location][item.Product]) {
+          locationProductSales[item.Location][item.Product] = 0;
+        }
+        locationProductSales[item.Location][item.Product] += item.MQty;
+      });
+  
+      const topProductsByLocation = [];
+  
+      Object.keys(locationProductSales).forEach(location => {
+        const products = Object.entries(locationProductSales[location])
+          .sort((a, b) => b[1] - a[1]) // Sort products by quantity in descending order
+          .slice(0, 5); // Get top 5 products
+        products.forEach(product => {
+          topProductsByLocation.push({
+            location: location,
+            product: product[0],
+            quantity: product[1]
+          });
+        });
+      });
+  
+      const tableBody = document.querySelector('#topProduct tbody');
+  
+      // Populate table with top products by location
+      topProductsByLocation.forEach(item => {
+        const row = `<tr>
+                      <td>${item.location}</td>
+                      <td>${item.product}</td>
+                      <td>${item.quantity}</td>
+                    </tr>`;
+        tableBody.innerHTML += row;
+      });
+  
+    // Initialize DataTable with pagination
+    $(document).ready(function() {
+      $('#topProduct').DataTable({
+        "pageLength": 5, // Show 5 entries per page
+        "lengthChange": false, // Disable length change
+        "searching": false, // Disable searching
+        "ordering": false // Disable ordering
+      });
+    });
 
 
 
@@ -293,13 +317,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           }
         }
       });
-
     })
     .catch(error => console.error('Error fetching data:', error));
 
 });
-
-window.onload = function(){
-  const selectCountry = document.getElementById('lokasi'),
-        select = document.querySelectorAll('select')
-}
