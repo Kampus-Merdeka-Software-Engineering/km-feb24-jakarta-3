@@ -114,6 +114,37 @@
                 <button id="btnMonthly">Monthly</button>
             </div> -->
             <h1>Running Courses</h1>
+            <div class="filter">
+                <form action="" class="btnLokasiMonitoring">
+                    <select name="lokasi" id="lokasiMonitoring">
+                        <option value="">All Location</option>
+                        <option value="">Gutten Plans</option>
+                        <option value="">EB Public Library</option>
+                        <option value="">Brunswick Sq Mall</option>
+                        <option value="">Earle Asphalt</option>
+                    </select>
+                </form>
+                <form action="" class="btnMachineMonitoring">
+                    <select name="lokasi" id="machineMonitoring">
+                        <option value="">All Machine</option>
+                        <option value="">GuttenPlans x1367</option>
+                        <option value="">EB Public Library x1380</option>
+                        <option value="">BSQ Mall x1364 - Zales</option>
+                        <option value="">BSQ Mall x1366 - ATT</option>
+                        <option value="">Earle Asphalt x1371</option>
+                    </select>
+                </form>
+                <form action="" class="btnCategoryMonitoring">
+                    <select name="lokasi" id="categoryMonitoring">
+                        <option value="">All Category</option>
+                        <option value="">Carbonated</option>
+                        <option value="">Food</option>
+                        <option value="">Non-carbonated</option>
+                        <option value="">Water</option>
+                    </select>
+                </form>
+            </div>
+            <br>
             <div class="courses-content">
                 <div class="section-product">
                     <div class="header-product">
@@ -144,7 +175,6 @@
             <div class="header-monitoring">
                 <input type="radio" id="weekly" name="toggle" checked>
                 <label for="weekly" id="btnWeekly">Weekly</label>
-              
                 <input type="radio" id="monthly" name="toggle">
                 <label for="monthly" id="btnMonthly">Monthly</label>
             </div>
@@ -152,36 +182,6 @@
             <div class="activityContent">
                 <div>
                     <canvas id="chartPenjualan" width="820px"></canvas>
-                </div>
-                <div class="filter">
-                    <form action="" class="btnLokasiMonitoring">
-                        <select name="lokasi" id="lokasiMonitoring">
-                            <option value="">All Location</option>
-                            <option value="">Gutten Plans</option>
-                            <option value="">EB Public Library</option>
-                            <option value="">Brunswick Sq Mall</option>
-                            <option value="">Earle Asphalt</option>
-                        </select>
-                    </form>
-                    <form action="" class="btnMachineMonitoring">
-                        <select name="lokasi" id="machineMonitoring">
-                            <option value="">All Machine</option>
-                            <option value="">GuttenPlans x1367</option>
-                            <option value="">EB Public Library x1380</option>
-                            <option value="">BSQ Mall x1364 - Zales</option>
-                            <option value="">BSQ Mall x1366 - ATT</option>
-                            <option value="">Earle Asphalt x1371</option>
-                        </select>
-                    </form>
-                    <form action="" class="btnCategoryMonitoring">
-                        <select name="lokasi" id="categoryMonitoring">
-                            <option value="">All Category</option>
-                            <option value="">Carbonated</option>
-                            <option value="">Food</option>
-                            <option value="">Non-carbonated</option>
-                            <option value="">Water</option>
-                        </select>
-                    </form>
                 </div>
             </div>
         </section>
