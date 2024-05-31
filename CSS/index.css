@@ -531,36 +531,76 @@ canvas{
   text-align: center;
 }
 
-.phone-image {
-  width: 81px; 
-  height: 72px; 
-  position: absolute; 
+.phone-container {
+  position: absolute;
   top: 4rem;
   left: 2rem;
 }
 
-.laptop-image {
-  width: 90px; 
-  height: 81px; 
-  position: absolute; 
+.phone-container img {
+  width: 81px;
+  height: 72px;
+}
+
+.phone-container p {
+  color: #3C89AA;
+  font-size: 1rem;
+  margin-left: 0.25rem;
+  margin-top: 1rem;
+}
+
+.laptop-container {
+  position: absolute;
   top: 4rem;
   left: 11rem;
 }
 
-.tablet-image {
-  width: 68px; 
-  height: 79px; 
-  position: absolute; 
+.laptop-container img {
+  width: 90px;
+  height: 81px;
+}
+
+.laptop-container p {
+  color: #3C89AA;
+  font-size: 1rem;
+  margin-left: 0.25rem;
+  margin-top: 0.7rem;
+}
+
+.tablet-container {
+  position: absolute;
   top: 4rem;
   left: 21rem;
 }
 
-.pc-image {
-  width: 91px; 
-  height: 71px; 
-  position: absolute; 
+.tablet-container img {
+  width: 68px;
+  height: 79px;
+}
+
+.tablet-container p {
+  color: #3C89AA;
+  font-size: 1rem;
+  margin-left: 0.25rem;
+  margin-top: 0.8rem;
+}
+
+.pc-container {
+  position: absolute;
   top: 4rem;
   left: 31rem;
+}
+
+.pc-container img {
+  width: 91px;
+  height: 71px;
+}
+
+.pc-container p {
+  color: #3C89AA;
+  font-size: 1rem;
+  margin-left: 0.25rem;
+  margin-top: 1.2rem;
 }
 
 .personalization-content {
