@@ -123,25 +123,28 @@ main{
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 1rem;
-  
+  padding: 1rem;
 }
 
 #chartMahcine {
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 1rem;
+  padding: 1rem;
 }
 
 #lokasiByCategory{
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 1rem;
+  padding: 1rem;
 }
 
 #salesByLokasi{
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 1rem;
+  padding: 1rem;
 }
 
 #typeTransaksi {
@@ -151,6 +154,7 @@ main{
   text-align: left;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 1rem;
+  padding: 1rem;
 }
 
 /* th, td {
