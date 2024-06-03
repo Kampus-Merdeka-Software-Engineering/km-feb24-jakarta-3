@@ -684,9 +684,29 @@ footer{
   height: 20rem;
 }
 
+.footer-content {
+  margin-right: 1rem;
+}
+
+.footer-content p {
+  color: #dbdbdb;
+}
+
 .feedback-form {
   text-align: left;
   color: #dbdbdb;
+}
+
+.feedback-content{
+  display: flex;
+  flex-direction: column;
+}
+
+#btnSubmit {
+  border: solid transparent;
+  border-radius: 4px;
+  color: #868686;
+  cursor: pointer;
 }
 
 #feedback {
@@ -698,6 +718,7 @@ footer{
   display: flex;
   align-items: end;
 }
+
 
 
 /* RESPONSIVE */
