@@ -463,21 +463,37 @@ tr:nth-child(even) {
 .name p {
   font-size: 1rem;
 }
+  
+.footer-content p {
+  margin: 1rem;
+  font-size: 1rem;
+  color: #dbdbdb;
+}
 
-
-/* FOOTER */
 footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   position: relative;
   margin-top: 1.2rem;
   text-align: center;
   background-color: #72ACC6;
   height: 20rem;
 }
-  
-.footer-content p {
-  margin: 1rem;
-  font-size: 1rem;
+
+.feedback-form {
+  text-align: left;
   color: #dbdbdb;
+}
+
+#feedback {
+  border: solid transparent;
+  border-radius: 4px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: end;
 }
 
 
