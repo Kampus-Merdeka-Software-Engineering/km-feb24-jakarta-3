@@ -115,6 +115,17 @@ document.getElementById('btnMonthly').addEventListener('click', () => {
 updateChart(groupDataByWeek);
 
 
+
+// Fungsi untuk mengonversi angka menjadi format yang disingkat
+function formatNumber(number) {
+  if (number >= 1000000) {
+      return (number / 1000000).toFixed(1) + 'M';
+  } else if (number >= 1000) {
+      return (number / 1000).toFixed(1) + 'K';
+  } else {
+      return number;
+  }
+}
 //MENAMPILKAN SCORE CARD PRODUCT
 document.addEventListener('DOMContentLoaded', () => {
   fetch('/data.json')
@@ -139,17 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //MENAMPILKAN SCORE CARD MQTY
-// Fungsi untuk mengonversi angka menjadi format yang disingkat
-function formatNumber(number) {
-  if (number >= 1000000) {
-      return (number / 1000000).toFixed(1) + 'M';
-  } else if (number >= 1000) {
-      return (number / 1000).toFixed(1) + 'K';
-  } else {
-      return number;
-  }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   fetch('data.json')
       .then(response => response.json())
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const transactionCountElement = document.getElementById('transaction-count');
+  const transactionCountElement = document.getElementById('valueTransaction');
 
   // Fetch the JSON data
   fetch('data.json')
@@ -178,9 +178,26 @@ document.addEventListener('DOMContentLoaded', () => {
           const transactionCount = transactions.length;
 
           // Update the scorecard with the transaction count
-          transactionCountElement.textContent = transactionCount;
+          transactionCountElement.textContent = `${formatNumber(transactionCount)}`;
       })
       .catch(error => {
           console.error('Error fetching the JSON data:', error);
       });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+          // Menghitung jumlah total RPrice dari semua produk
+          let totalRprice = data.reduce((accumulator, item) => {
+              return accumulator + item.RPrice * item.RQty;
+          }, 0);
+
+          // Menampilkan jumlah total RPrice dengan format singkat
+          const totalRpriceContainer = document.getElementById('valueRprice');
+          totalRpriceContainer.textContent = `${formatNumber(totalRprice)}`;
+      })
+      .catch(error => console.error('Error fetching data:', error));
 });

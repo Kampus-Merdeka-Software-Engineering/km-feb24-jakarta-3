@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="./CSS/index.css">
     
     <title>Document</title>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"/>
+
+    <!-- jQuery Pastikan jQuery berada pada paling atas saat pakai datatables -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <!-- DataTables Search Highlight -->
+    <script src="https://cdn.datatables.net/plug-ins/1.11.5/features/searchHighlight/dataTables.searchHighlight.min.js"></script>
+    <!-- jQuery Highlight -->
+    <script src="https://bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
 
 </head>
 <body>
@@ -18,20 +32,24 @@
                 </div>
                 <ul class="menu">
                     <li>
-                        <img src="/Assets/dashboard.png" alt="">
+                        <img src="Assets/dashboard.png" alt="">
                         <a href="#dashboard">Dashboard</a>
                     </li>
                     <li>
-                        <img src="/Assets/monitoring.png" alt="">
+                        <img src="Assets/monitoring.png" alt="">
                         <a href="#monitoringData">Monitoring Data</a>
                     </li>
                     <li>
-                        <img src="/Assets/about.png" alt="">
+                        <img src="Assets/about.png" alt="">
                         <a href="#about">About Us</a>
                     </li>
                     <li>
-                        <img src="/Assets/team.png" alt="">
+                        <img src="Assets/team.png" alt="">
                         <a href="#team">Our Team</a>
+                    </li>
+                    <li>
+                        <img src="Assets/setting.png" alt="">
+                        <a href="#setting">Setting</a>
                     </li>
                 </ul>
         </nav>
@@ -41,44 +59,93 @@
         <section id="dashboard">
             <div class="header-dashboard">
                 <h1>Dashboard</h1>
+                <form action="" class="btnlokasiDashboard">
+                    <select name="lokasi" id="lokasiDashboard">
+                        <option value="">All Location</option>
+                        <option value="">Gutten Plans</option>
+                        <option value="">EB Public Library</option>
+                        <option value="">Brunswick Sq Mall</option>
+                        <option value="">Earle Asphalt</option>
+                    </select>
+                </form>
             </div>
             <div class="dashboard-content">
                 <div>
-                    <canvas id="chart0"></canvas>
+                    <canvas id="salesByCategory"></canvas>
                 </div>                  
                 <div>
-                    <canvas id="chart1"></canvas>
+                    <canvas id="chartMahcine"></canvas>
                 </div>
                 <div>
-                    <table id="chart2">
-                        <thead>
+                    <canvas id="lokasiByCategory"></canvas>
+                </div>
+                <div>
+                    <canvas id="salesByLokasi"></canvas>
+                </div>
+                <div>
+                    <table id="topProduct" class="display-table">
+                        <thead id="tableHead">
                             <tr>
-                                <th colspan="2" class="colspan">Top 5 products</th>
+                                <th colspan="3" class="colspan">Top 5 products</th>
                             </tr>
                             <tr>
+                                <th>Location</th>
                                 <th>Product</th>
                                 <th>MQty</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Table rows will be dynamically added here -->
+
                         </tbody>
                     </table>
                 </div>
                 <div>
-                    <canvas id="chart3"></canvas>
+                    <canvas id="typeTransaksi"></canvas>
                 </div>
-                <div class="chart4"></div>
+                
             </div>
         </section>
 
         <!-- MONITORING DATA -->
         <section id="monitoringData">
-            <div class="header-monitoring">
+            
+              
+            <!-- <div class="header-monitoring">
                 <button id="btnWeekly">Weekly</button>
                 <button id="btnMonthly">Monthly</button>
-            </div>
+            </div> -->
             <h1>Running Courses</h1>
+            <div class="filter">
+                <form action="" class="btnLokasiMonitoring">
+                    <select name="lokasi" id="lokasiMonitoring">
+                        <option value="">All Location</option>
+                        <option value="">Gutten Plans</option>
+                        <option value="">EB Public Library</option>
+                        <option value="">Brunswick Sq Mall</option>
+                        <option value="">Earle Asphalt</option>
+                    </select>
+                </form>
+                <form action="" class="btnMachineMonitoring">
+                    <select name="lokasi" id="machineMonitoring">
+                        <option value="">All Machine</option>
+                        <option value="">GuttenPlans x1367</option>
+                        <option value="">EB Public Library x1380</option>
+                        <option value="">BSQ Mall x1364 - Zales</option>
+                        <option value="">BSQ Mall x1366 - ATT</option>
+                        <option value="">Earle Asphalt x1371</option>
+                    </select>
+                </form>
+                <form action="" class="btnCategoryMonitoring">
+                    <select name="lokasi" id="categoryMonitoring">
+                        <option value="">All Category</option>
+                        <option value="">Carbonated</option>
+                        <option value="">Food</option>
+                        <option value="">Non-carbonated</option>
+                        <option value="">Water</option>
+                    </select>
+                </form>
+            </div>
+            <br>
             <div class="courses-content">
                 <div class="section-product">
                     <div class="header-product">
@@ -96,17 +163,28 @@
                     <div class="header-transaction">
                         <p>Transaction</p>
                     </div>
+                    <div id="valueTransaction"></div>
                 </div>
                 <div class="section-rprice">
                     <div class="header-rprice">
                         <p>RPrice</p>
                     </div>
+                    <div id="valueRprice"></div>
                 </div>
             </div>
             <h1>Activity</h1>
+            <div class="header-monitoring">
+                <input type="radio" id="weekly" name="toggle" checked>
+                <label for="weekly" id="btnWeekly">Weekly</label>
+                <input type="radio" id="monthly" name="toggle">
+                <label for="monthly" id="btnMonthly">Monthly</label>
+            </div>
+            <br>
+            <div class="activityContent">
                 <div>
-                    <canvas id="chartPenjualan"></canvas>
+                    <canvas id="chartPenjualan" width="820px"></canvas>
                 </div>
+            </div>
         </section>
         
         <!-- ABOUT -->
@@ -118,6 +196,8 @@
                 <img src="/Assets/vending.png" alt="" >
             </div>
         </section>
+
+        <!-- OUR TEAM -->
         <section id="team">
             <div class="header-content-team">
                 <h1>OUR TEAM</h1>
@@ -125,68 +205,26 @@
             <div class="profile-team">
                 <div class="profile-content">
                     <div class="profile">
-                       
+                        <img src="Assets/Profile/Tiara.JPG" alt="">
                     </div>
                     <div class="name">
-                    <p>Tiara Angelika Sinaga<br> Project Leader</p><br>
-                    </div>
-                </div>
-                <div class="profile-content">
-                    <div class="profile"></div>
-                    <div class="name">
-                    <p>Eriana Erawati<br> PIC Quality Assurance</p><br>
-                    </div>
-                </div>
-                <div class="profile-content">
-                    <div class="profile"></div>
-                    <div class="name">
-                    <p>Ryan <br> PIC Deployment</p><br>
-                    </div>
-                </div>
-                <div class="profile-content">
-                    <div class="profile"></div>
-                    <div class="name">
-                    <p>Dandi Maulana Akbar <br> PIC Front end</p><br>
+                    <p>Tiara Angellika Sinaga <br> Project Leader</p><br>
                     </div>
                 </div>
                 <div class="profile-content">
                     <div class="profile">
-                        <img src="/Assets/Profile/murni.jpg" alt="">
+                        <img src="Assets/Profile/kahfi.jpg" alt="">
                     </div>
                     <div class="name">
-                    <p>Murni Cahnia <br> PIC Pitch Deck</p><br>
+                        <p>Muhammad Kahfi Ms <br> Front End Engineer</p><br>
                     </div>
                 </div>
                 <div class="profile-content">
                     <div class="profile">
-                        <img src="/Assets/Profile/jasmin.JPG" alt="">
+                        <img src="Assets/Profile/dandi.jpg" alt="">
                     </div>
                     <div class="name">
-                    <p>Alfi Nuria Jasmine <br> PIC Pitch Deck</p><br>
-                    </div>
-                </div>
-                <div class="profile-content">
-                    <div class="profile"></div>
-                    <div class="name">
-                    <p>Elisa Oktaviana <br> PIC Front end</p><br>
-                    </div>
-                </div>
-                <div class="profile-content">
-                    <div class="profile"></div>
-                    <div class="name">
-                    <p>Deva<br> PIC Pitch Deck</p><br>
-                    </div>
-                </div>
-                <div class="profile-content">
-                    <div class="profile"></div>
-                    <div class="name">
-                    <p>Edy Mulyadi <br> PIC Quality Assurance</p><br>
-                    </div>
-                </div>
-                <div class="profile-content">
-                    <div class="profile"></div>
-                    <div class="name">
-                    <p>Miranda Rava Yunizar <br> PIC Pitch Deck</p><br>
+                    <p>Dandi Maulana Akbar <br> Front End Engineer</p><br>
                     </div>
                 </div>
                 <div class="profile-content">
@@ -194,26 +232,120 @@
                         <img src="Assets/Profile/ersa.jpeg" alt="">
                     </div>
                     <div class="name">
-                    <p>Bunga Lestari <br> PIC Front end</p><br>
+                    <p>Ersa Erliana <br> Front End Engineer</p><br>
                     </div>
                 </div>
                 <div class="profile-content">
                     <div class="profile">
-                        <img src="/Assets/Profile/elisa.jpeg" alt="">
+                        <img src="Assets/Profile/elisa.jpeg" alt="">
                     </div>
                     <div class="name">
-                        <p>Elisa Oktaviana<br> PIC Front end</p><br>
+                    <p>Elisa Oktaviana<br> Front End Engineer</p><br>
                     </div>
                 </div>
                 <div class="profile-content">
                     <div class="profile">
-                        <img src="/Assets/Profile/kahfi.jpg" alt="">
+                        <img src="Assets/Profile/Ryan.jpg" alt="">
                     </div>
                     <div class="name">
-                        <p>Muhammad Kahfi MS <br> PIC Front end</p><br>
-                    </div>
+                    <p>Ryan Agus Nugraha <br> Deployment Team</p><br>
                     </div>
                 </div>
+                <div class="profile-content">
+                    <div class="profile">
+                        <img src="Assets/Profile/yudis.jpg" alt="">
+                    </div>
+                    <div class="name">
+                    <p>Yudistira Dwi Anggara <br> Deployment Team</p><br>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <div class="profile">
+                        <img src="Assets/Profile/murni.jpg" alt="">
+                    </div>
+                    <div class="name">
+                    <p>Murni Cahnia <br> Pitch Deck Team</p><br>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <div class="profile">
+                        <img src="Assets/Profile/jasmin.JPG" alt="">
+                    </div>
+                    <div class="name">
+                    <p>Alfi Nuria Jasmine <br> Pitch Deck Team</p><br>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <div class="profile">
+                        <img src="Assets/Profile/ara.JPG" alt="">
+                    </div>
+                    <div class="name">
+                    <p>Miranda Rafa Yunizar <br> Pitch Deck Team</p><br>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <div class="profile">
+                        <img src="Assets/Profile/eriana.jpg" alt="">
+                    </div>
+                    <div class="name">
+                    <p>Eriana Erawati <br> Quality Assurance</p><br>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <div class="profile">
+                        <img src="Assets/Profile/deva.jpg" alt="">
+                    </div>
+                    <div class="name">
+                    <p>Deva Salma Khataini <br> Quality Assurance</p><br>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <div class="profile">
+                        <img src="Assets/Profile/edy.jpg" alt="">
+                    </div>
+                    <div class="name">
+                    <p>Edy Mulyadi <br> Quality Assurance</p><br>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- SECTION-SETTING -->
+       <section id="setting">
+            <div class="header-setting">
+            </div>
+            <div class="setting-content">
+                <p>Device</p>
+                <div class="device-container">
+                    <div class="phone-container">
+                        <img src="Assets/Phone.png" alt="Phone Image">
+                        <p>Phone</p>
+                    </div>
+                    <div class="laptop-container">
+                        <img src="Assets/Laptop.png" alt="Laptop Image">
+                        <p>Laptop</p>
+                    </div>
+                    <div class="tablet-container">
+                        <img src="Assets/Tablet.png" alt="Tablet Image">
+                        <p>Tablet</p>
+                    </div>
+                    <div class="pc-container">
+                        <img src="Assets/PC.png" alt="PC Image">
+                        <p>PC</p>
+                    </div>
+                </div>
+            </div>
+            <div class="personalization-content">
+                <img src="Assets/Personalization.png" alt="" class="personalization-image">
+                <p>Personalization <br> Background & theme</p>
+            </div>
+            <div class="time_language-content">
+                <img src="Assets/Time_Languange.png" alt="" class="time_language-image">
+                <p>Time & Language <br> Speech, region, & date</p>
+            </div>
+            <div class="update-content">
+                <img src="Assets/Update.png" alt="" class="update-image">
+                <p>Update <br> Recovery & backup</p>
             </div>
         </section>
 
@@ -232,7 +364,7 @@
         </footer>
     </main>
 
-    <script src="/JavaScript/monitoring.js"></script>
-    <script src="/JavaScript/dashboard.js"></script>
+    <script src="./JavaScript/monitoring.js"></script>
+    <script src="./JavaScript/dashboard.js"></script>
 </body>
 </html>
