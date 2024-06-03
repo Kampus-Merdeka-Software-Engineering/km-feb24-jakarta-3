@@ -1,6 +1,6 @@
 // Fungsi untuk mengambil data JSON
 async function fetchData() {
-  const response = await fetch('/data.json');
+  const response = await fetch('./data.json');
   const data = await response.json();
   return data;
 }
@@ -128,7 +128,7 @@ function formatNumber(number) {
 }
 //MENAMPILKAN SCORE CARD PRODUCT
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('/data.json')
+  fetch('./data.json')
       .then(response => response.json())
       .then(data => {
           // Melacak produk yang unik
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //MENAMPILKAN SCORE CARD MQTY
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('data.json')
+  fetch('./data.json')
       .then(response => response.json())
       .then(data => {
           // Menghitung jumlah total MQty dari semua produk
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const transactionCountElement = document.getElementById('valueTransaction');
 
   // Fetch the JSON data
-  fetch('data.json')
+  fetch('./data.json')
       .then(response => response.json())
       .then(data => {
           // Assuming data is an array of transaction objects
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('data.json')
+  fetch('./data.json')
       .then(response => response.json())
       .then(data => {
           // Menghitung jumlah total RPrice dari semua produk
