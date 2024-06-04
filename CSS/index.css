@@ -113,7 +113,7 @@ main{
 
 .dashboard-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kolom dengan lebar minimal 200px, dan mengisi fraksi dari sisa ruang */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Kolom dengan lebar minimal 200px, dan mengisi fraksi dari sisa ruang */
   grid-gap: 20px; 
   align-items: center; 
   justify-content: center; 
@@ -343,9 +343,17 @@ tr:nth-child(even) {
   font-size: 2.2rem;
 }
 
-canvas{
+
+/* ACTIVITY */
+.activityContent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.activityContent, canvas {
   max-height: 30rem;
-  max-width: 50rem;
+  max-width: 60rem;
   width: 100% !important;
   height: 100% !important;
 }
@@ -354,13 +362,6 @@ canvas{
   background-color: white;
   border: solid transparent;
   border-radius: 1rem;
-}
-
-/* ACTIVITY */
-.activityContent {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
 }
 
 .filter {
