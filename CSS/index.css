@@ -679,17 +679,11 @@ footer{
   justify-content: center;
   position: relative;
   margin-top: 1.2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   text-align: center;
   background-color: #72ACC6;
   height: 20rem;
-}
-
-.footer-content {
-  margin-right: 1rem;
-}
-
-.footer-content p {
-  color: #dbdbdb;
 }
 
 .feedback-form {
@@ -717,6 +711,11 @@ footer{
 .footer-content {
   display: flex;
   align-items: end;
+  margin-right: 1.5rem;
+}
+
+.footer-content p {
+  color: #dbdbdb;
 }
 
 

@@ -115,6 +115,12 @@ document.getElementById('btnMonthly').addEventListener('click', () => {
 updateChart(groupDataByWeek);
 
 
+// FILTER SCORE CARD
+async function fetchData() {
+  const response = await fetch('./data.json');
+  const data = await response.json();
+  return data;
+}
 
 // Fungsi untuk mengonversi angka menjadi format yang disingkat
 function formatNumber(number) {
@@ -126,78 +132,50 @@ function formatNumber(number) {
       return number;
   }
 }
-//MENAMPILKAN SCORE CARD PRODUCT
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('./data.json')
-      .then(response => response.json())
-      .then(data => {
-          // Melacak produk yang unik
-          const uniqueProducts = {};
 
-          data.forEach(item => {
-              uniqueProducts[item.Product] = true;
-          });
+// Fungsi untuk memfilter data berdasarkan pilihan
+function filterData(data, location, machine, category) {
+  return data.filter(item => {
+      return (location === "" || item.Location === location) &&
+             (machine === "" || item.Machine === machine) &&
+             (category === "" || item.Category === category);
+  });
+}
 
-          // Menghitung jumlah produk yang unik
-          const totalUniqueProducts = Object.keys(uniqueProducts).length;
+// Fungsi untuk memperbarui scorecard
+async function updateScorecards() {
+  const data = await fetchData();
 
-          // Menampilkan jumlah produk yang unik
-          const totalProductsContainer = document.getElementById('valueProduct');
-          totalProductsContainer.textContent = `${totalUniqueProducts}`;
-      })
-      .catch(error => console.error('Error fetching data:', error));
-});
+  const location = document.getElementById('lokasiMonitoring').value;
+  const machine = document.getElementById('machineMonitoring').value;
+  const category = document.getElementById('categoryMonitoring').value;
 
+  const filteredData = filterData(data, location, machine, category);
 
-//MENAMPILKAN SCORE CARD MQTY
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('./data.json')
-      .then(response => response.json())
-      .then(data => {
-          // Menghitung jumlah total MQty dari semua produk
-          let totalMqty = data.reduce((accumulator, item) => {
-              return accumulator + item.MQty;
-          }, 0);
+  // Menghitung dan menampilkan data untuk scorecard
+  const uniqueProducts = {};
+  let totalMqty = 0;
+  let totalTransactions = 0;
+  let totalRprice = 0;
 
-          // Menampilkan jumlah total MQty dengan format singkat
-          const totalMqtyContainer = document.getElementById('valueMqty');
-          totalMqtyContainer.textContent = `${formatNumber(totalMqty)}`;
-      })
-      .catch(error => console.error('Error fetching data:', error));
-});
+  filteredData.forEach(item => {
+      uniqueProducts[item.Product] = true;
+      totalMqty += item.MQty;
+      totalTransactions += 1;
+      totalRprice += item.RPrice * item.RQty;
+  });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const transactionCountElement = document.getElementById('valueTransaction');
+  const totalUniqueProducts = Object.keys(uniqueProducts).length;
+  document.getElementById('valueProduct').textContent = `${totalUniqueProducts}`;
+  document.getElementById('valueMqty').textContent = `${formatNumber(totalMqty)}`;
+  document.getElementById('valueTransaction').textContent = `${formatNumber(totalTransactions)}`;
+  document.getElementById('valueRprice').textContent = `${formatNumber(totalRprice)}`;
+}
 
-  // Fetch the JSON data
-  fetch('./data.json')
-      .then(response => response.json())
-      .then(data => {
-          // Assuming data is an array of transaction objects
-          const transactions = Array.isArray(data) ? data : [data];
-          const transactionCount = transactions.length;
+// Event listeners untuk dropdown
+document.getElementById('lokasiMonitoring').addEventListener('change', updateScorecards);
+document.getElementById('machineMonitoring').addEventListener('change', updateScorecards);
+document.getElementById('categoryMonitoring').addEventListener('change', updateScorecards);
 
-          // Update the scorecard with the transaction count
-          transactionCountElement.textContent = `${formatNumber(transactionCount)}`;
-      })
-      .catch(error => {
-          console.error('Error fetching the JSON data:', error);
-      });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('./data.json')
-      .then(response => response.json())
-      .then(data => {
-          // Menghitung jumlah total RPrice dari semua produk
-          let totalRprice = data.reduce((accumulator, item) => {
-              return accumulator + item.RPrice * item.RQty;
-          }, 0);
-
-          // Menampilkan jumlah total RPrice dengan format singkat
-          const totalRpriceContainer = document.getElementById('valueRprice');
-          totalRpriceContainer.textContent = `${formatNumber(totalRprice)}`;
-      })
-      .catch(error => console.error('Error fetching data:', error));
-});
+// Panggil fungsi untuk memperbarui scorecard pada saat halaman dimuat
+updateScorecards();
