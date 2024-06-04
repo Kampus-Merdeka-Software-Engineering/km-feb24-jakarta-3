@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     .then(response => response.json())
     .then(data => {
 
-
       //MENAMPILKAN TYPE TRANSAKSI
       const transactionTypes = {};
       data.forEach(item => {

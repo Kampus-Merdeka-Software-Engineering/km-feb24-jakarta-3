@@ -231,6 +231,7 @@ tr:nth-child(even) {
 .courses-content {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -351,22 +352,20 @@ tr:nth-child(even) {
   align-items: flex-start;
 }
 
-.activityContent, canvas {
-  max-height: 30rem;
-  max-width: 60rem;
-  width: 100% !important;
-  height: 100% !important;
-}
-
 #chartPenjualan {
   background-color: white;
   border: solid transparent;
   border-radius: 1rem;
+  max-height: 30rem;
+  max-width: 60rem;
+  width: 100% !important;
+  height: 100% !important;
   box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);;
 }
 
 .filter {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.2rem;
   margin-left: 0.2rem;
   margin-top: 0.6rem;
@@ -418,6 +417,7 @@ tr:nth-child(even) {
 #wave {
   width: 110rem;
 }
+
 .about-content h1{
   position: absolute;
   top: 8%;
