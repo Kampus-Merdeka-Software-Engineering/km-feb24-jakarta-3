@@ -362,6 +362,7 @@ tr:nth-child(even) {
   background-color: white;
   border: solid transparent;
   border-radius: 1rem;
+  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);;
 }
 
 .filter {
@@ -688,6 +689,8 @@ footer{
 }
 
 .feedback-form {
+  display: flex;
+  flex-direction: column;
   text-align: left;
   color: #dbdbdb;
 }
@@ -701,12 +704,15 @@ footer{
   border: solid transparent;
   border-radius: 4px;
   color: #868686;
+  height: 2rem;
   cursor: pointer;
 }
 
 #feedback {
   border: solid transparent;
   border-radius: 4px;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .footer-content {
