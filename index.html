@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" href="./Assets/icon/kampus_merdeka.png" type="image/png">
+
     <link rel="stylesheet" href="./CSS/index.css">
     
-    <title>Document</title>
+    <title>Vending Machine - Team 3 Jakarta</title>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -55,17 +57,18 @@
         </nav>
     </aside>
     <main>
+
         <!-- DASHBOARD -->
         <section id="dashboard">
             <div class="header-dashboard">
                 <h1>Dashboard</h1>
                 <form action="" class="btnlokasiDashboard">
                     <select name="lokasi" id="lokasiDashboard">
-                        <option value="">All Location</option>
-                        <option value="">Gutten Plans</option>
-                        <option value="">EB Public Library</option>
-                        <option value="">Brunswick Sq Mall</option>
-                        <option value="">Earle Asphalt</option>
+                        <option value="all">All Location</option>
+                        <option value="Gutten Plans">Gutten Plans</option>
+                        <option value="EB Public Library">EB Public Library</option>
+                        <option value="Brunswick Sq Mall">Brunswick Sq Mall</option>
+                        <option value="Earle Asphalt">Earle Asphalt</option>
                     </select>
                 </form>
             </div>
@@ -75,12 +78,6 @@
                 </div>                  
                 <div>
                     <canvas id="chartMahcine"></canvas>
-                </div>
-                <div>
-                    <canvas id="lokasiByCategory"></canvas>
-                </div>
-                <div>
-                    <canvas id="typeTransaksi"></canvas>
                 </div>
                 <div>
                     <table id="topProduct" class="display-table">
@@ -100,28 +97,22 @@
                     </table>
                 </div>
                 <div>
-                    <canvas id="salesByLokasi"></canvas>
+                    <canvas id="typeTransaksi"></canvas>
                 </div>
             </div>
         </section>
 
         <!-- MONITORING DATA -->
         <section id="monitoringData">
-            
-              
-            <!-- <div class="header-monitoring">
-                <button id="btnWeekly">Weekly</button>
-                <button id="btnMonthly">Monthly</button>
-            </div> -->
             <h1>Running Courses</h1>
             <div class="filter">
                 <form action="" class="btnLokasiMonitoring">
                     <select name="lokasi" id="lokasiMonitoring">
                         <option value="">All Location</option>
-                        <option value="">Gutten Plans</option>
-                        <option value="">EB Public Library</option>
-                        <option value="">Brunswick Sq Mall</option>
-                        <option value="">Earle Asphalt</option>
+                        <option value="GuttenPlans">Gutten Plans</option>
+                        <option value="EB Public Library">EB Public Library</option>
+                        <option value="Brunswick Sq Mall">Brunswick Sq Mall</option>
+                        <option value="Earle Asphalt">Earle Asphalt</option>
                     </select>
                 </form>
                 <form action="" class="btnMachineMonitoring">
@@ -192,7 +183,7 @@
             <div class="about-content">
                 <h1>About Us ?</h1>
                 <p>A vending machine is an automated machine that sells a variety of products, ranging from snacks and drinks. It serves customers without the presence of an operator and accepts cash and credit card payments.</p>
-                <img src="/Assets/vending.png" alt="" >
+                <img src="./Assets/vending.png" alt="" >
             </div>
         </section>
 
@@ -311,39 +302,41 @@
 
        <!-- SECTION-SETTING -->
        <section id="setting">
-        <div class="header-setting">
-        </div>
-        <div class="setting-content">
-            <p>Device</p>
-            <div class="phone-container">
-                <img src="Assets/Phone.png" alt="Phone Image">
-                <p>Phone</p>
+            <div class="header-setting">
             </div>
-            <div class="laptop-container">
-                <img src="Assets/Laptop.png" alt="Laptop Image">
-                <p>Laptop</p>
-            </div> 
-            <div class="tablet-container">
-                <img src="Assets/Tablet.png" alt="Tablet Image">
-                <p>Tablet</p>
-            </div> 
-            <div class="pc-container">
-                <img src="Assets/PC.png" alt="PC Image">
-                <p>PC</p>
-            </div> 
-        </div>
-        <div class="personalization-content">
-            <img src="Assets/Personalization.png" alt="" class="personalization-image">
-            <p>Personalization <br> Background & theme</p><br>
-        </div>
-        <div class="time_language-content">
-            <img src="Assets/Time_Languange.png" alt="" class="time_language-image">
-            <p>Time & Language <br> Speech, region, & date</p><br>
-        </div>
-        <div class="update-content">
-            <img src="Assets/Update.png" alt="" class="update-image">
-            <p>Update <br> Recovery & backup</p><br>
-        </div>
+            <div class="setting-content">
+                <p>Device</p>
+                <div class="device-container">
+                    <div class="phone-container">
+                        <img src="Assets/Phone.png" alt="Phone Image">
+                        <p>Phone</p>
+                    </div>
+                    <div class="laptop-container">
+                        <img src="Assets/Laptop.png" alt="Laptop Image">
+                        <p>Laptop</p>
+                    </div>
+                    <div class="tablet-container">
+                        <img src="Assets/Tablet.png" alt="Tablet Image">
+                        <p>Tablet</p>
+                    </div>
+                    <div class="pc-container">
+                        <img src="Assets/PC.png" alt="PC Image">
+                        <p>PC</p>
+                    </div>
+                </div>
+            </div>
+            <div class="personalization-content">
+                <img src="Assets/Personalization.png" alt="" class="personalization-image">
+                <p>Personalization <br> Background & theme</p>
+            </div>
+            <div class="time_language-content">
+                <img src="Assets/Time_Languange.png" alt="" class="time_language-image">
+                <p>Time & Language <br> Speech, region, & date</p>
+            </div>
+            <div class="update-content">
+                <img src="Assets/Update.png" alt="" class="update-image">
+                <p>Update <br> Recovery & backup</p>
+            </div>
         </section>
 
         <!-- FOOTER -->
@@ -352,6 +345,13 @@
                 <p>
                     Copyright &copy; Jakarta Team 3
                 </p>
+            </div> <div class="feedback-content">
+                <form action="#" class="feedback-form">
+                    <label for="feedback" class="lbFeedback">Feedback:</label>
+                    <textarea name="feedback" id="feedback" cols="35" rows="6" placeholder="Submit your feedback here"></textarea>
+                    <button id="btnSubmit" type="submit">Submit</button>
+                </form>
+                
             </div>
         </footer>
     </main>
