@@ -114,3 +114,4 @@ document.getElementById('btnMonthly').addEventListener('click', () => {
 // Panggil fungsi untuk membuat chart awal dengan tampilan mingguan
 updateChart(groupDataByWeek);
 
+ // MENAMPILKAN SCORE CARD
