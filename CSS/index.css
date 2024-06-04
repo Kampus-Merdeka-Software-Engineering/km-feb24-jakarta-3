@@ -16,7 +16,7 @@ aside {
   width: fit-content;
 }
 .sidebar {
-  background-color: #72ACC6;
+  background-image: linear-gradient(to bottom, #72ACC6 35%, #094058);
   width: 13rem;
   height: 100%;
 }
@@ -107,7 +107,7 @@ main{
   border: none;
   outline: none;
   font-size: 1rem;
-  box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
+  box-shadow: 0 5px 10px 0 rgba(9, 64, 88, 0.25);
   cursor: pointer;
 }
 
@@ -121,28 +121,28 @@ main{
 
 #salesByCategory {
   background-color: white;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
   border-radius: 1rem;
   padding: 1rem;
 }
 
 #chartMahcine {
   background-color: white;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
   border-radius: 1rem;
   padding: 1rem;
 }
 
 #lokasiByCategory{
   background-color: white;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
   border-radius: 1rem;
   padding: 1rem;
 }
 
 #salesByLokasi{
   background-color: white;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
   border-radius: 1rem;
   padding: 1rem;
 }
@@ -152,7 +152,7 @@ main{
   width: 22rem;
   background-color: white;
   text-align: left;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
   border-radius: 1rem;
   padding: 1rem;
 }
@@ -172,7 +172,7 @@ tr:nth-child(even) {
   background-color: white;
   border: solid transparent;
   border-radius: 1rem;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
 }
 
 
@@ -682,7 +682,7 @@ footer{
   padding-top: 1rem;
   padding-bottom: 1rem;
   text-align: center;
-  background-color: #72ACC6;
+  background-image: linear-gradient(to bottom, #72ACC6, #094058);
   height: 20rem;
 }
 
