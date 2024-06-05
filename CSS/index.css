@@ -477,7 +477,7 @@ tr:nth-child(even) {
 
 @media (max-width: 600px) {
   .profile-team {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
