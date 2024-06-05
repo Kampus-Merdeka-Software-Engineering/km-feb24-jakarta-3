@@ -159,7 +159,7 @@ async function updateScorecards() {
     uniqueProducts[item.Product] = true;
     totalMqty += item.MQty;
     totalTransactions += 1;
-    totalRprice += item.RPrice * item.RQty;
+    totalRprice += item.RPrice ;
   });
 
   const totalUniqueProducts = Object.keys(uniqueProducts).length;
