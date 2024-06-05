@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       "pageLength": 5,
       "lengthChange": false,
       "searching": false,
-      "ordering": false,
+      "ordering": true,
       "destroy": true // Ensure the table is re-initialized properly
     });
 

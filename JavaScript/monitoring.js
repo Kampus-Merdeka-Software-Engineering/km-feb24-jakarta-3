@@ -54,11 +54,14 @@ function getWeekNumber(date) {
 let myChart;
 
 // Fungsi untuk menginisialisasi atau memperbaharui grafik
-async function updateChart(groupByFunction) {
+async function updateChart(groupByFunction, location, machine, category) {
   const data = await fetchData();
 
+  // Memfilter data berdasarkan parameter filter
+  const filteredData = filterData(data, location, machine, category);
+
   // Mengelompokkan data menggunakan fungsi yang diberikan
-  const groupedData = groupByFunction(data);
+  const groupedData = groupByFunction(filteredData);
 
   // Memisahkan label dan nilai dari data yang dikelompokkan
   const labels = Object.keys(groupedData).map(label => {
@@ -175,18 +178,58 @@ document.getElementById('lokasiMonitoring').addEventListener('change', async () 
   const location = document.getElementById('lokasiMonitoring').value;
   updateMachineDropdown(data, location);
   updateScorecards();
+
+  const machine = document.getElementById('machineMonitoring').value;
+  const category = document.getElementById('categoryMonitoring').value;
+  const groupByFunction = getSelectedGroupByFunction();
+  updateChart(groupByFunction, location, machine, category);
 });
-document.getElementById('machineMonitoring').addEventListener('change', updateScorecards);
-document.getElementById('categoryMonitoring').addEventListener('change', updateScorecards);
+
+document.getElementById('machineMonitoring').addEventListener('change', () => {
+  const location = document.getElementById('lokasiMonitoring').value;
+  const machine = document.getElementById('machineMonitoring').value;
+  const category = document.getElementById('categoryMonitoring').value;
+  updateScorecards();
+
+  const groupByFunction = getSelectedGroupByFunction();
+  updateChart(groupByFunction, location, machine, category);
+});
+
+document.getElementById('categoryMonitoring').addEventListener('change', () => {
+  const location = document.getElementById('lokasiMonitoring').value;
+  const machine = document.getElementById('machineMonitoring').value;
+  const category = document.getElementById('categoryMonitoring').value;
+  updateScorecards();
+
+  const groupByFunction = getSelectedGroupByFunction();
+  updateChart(groupByFunction, location, machine, category);
+});
+
+
+function getSelectedGroupByFunction() {
+  const weeklyRadio = document.getElementById('weekly');
+  if (weeklyRadio.checked) {
+    return groupDataByWeek;
+  }
+  return groupDataByMonth;
+}
+
 
 // Event listeners untuk tombol
 document.getElementById('btnWeekly').addEventListener('click', () => {
-  updateChart(groupDataByWeek);
+  const location = document.getElementById('lokasiMonitoring').value;
+  const machine = document.getElementById('machineMonitoring').value;
+  const category = document.getElementById('categoryMonitoring').value;
+  updateChart(groupDataByWeek, location, machine, category);
 });
 
 document.getElementById('btnMonthly').addEventListener('click', () => {
-  updateChart(groupDataByMonth);
+  const location = document.getElementById('lokasiMonitoring').value;
+  const machine = document.getElementById('machineMonitoring').value;
+  const category = document.getElementById('categoryMonitoring').value;
+  updateChart(groupDataByMonth, location, machine, category);
 });
+
 
 // Panggil fungsi untuk memperbarui scorecard pada saat halaman dimuat
 document.addEventListener('DOMContentLoaded', async () => {
@@ -197,6 +240,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   updateMachineDropdown(data, location);
   updateScorecards();
   
-  // Buat chart awal dengan tampilan mingguan
-  updateChart(groupDataByWeek);
+  const machine = document.getElementById('machineMonitoring').value;
+  const category = document.getElementById('categoryMonitoring').value;
+  const groupByFunction = getSelectedGroupByFunction();
+  
+  // Buat chart awal dengan tampilan mingguan dan filter diterapkan
+  updateChart(groupByFunction, location, machine, category);
 });
