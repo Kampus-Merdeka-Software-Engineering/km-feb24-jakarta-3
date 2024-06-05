@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       if (!groupedData[item.Machine][item.Location]) {
         groupedData[item.Machine][item.Location] = 0;
       }
-      groupedData[item.Machine][item.Location] += item.LineTotal;
+      groupedData[item.Machine][item.Location] += item.MQty;
     });
     const machineLabels = Object.keys(groupedData);
     const datasets = [];
