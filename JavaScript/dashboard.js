@@ -115,73 +115,98 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     // MENAMPILKAN PENJUALAN BERDASARKAN CATEGORY
-    const salesData = {
-      food: 0,
-      carbonated: 0,
-      nonCarbonated: 0,
-      water: 0
-    };
+    const predefinedOrder = ['food', 'carbonated', 'non carbonated', 'water'];
+
+    const groupedCategories = {};
     data.forEach(item => {
-      switch(item.Category.toLowerCase()) {
-        case 'food':
-          salesData.food += item.MQty;
-          break;
-        case 'carbonated':
-          salesData.carbonated += item.MQty;
-          break;
-        case 'non carbonated':
-          salesData.nonCarbonated += item.MQty;
-          break;
-        case 'water':
-          salesData.water += item.MQty;
-          break;
-      }
-    });
-    const ctxCategory = document.getElementById('salesByCategory').getContext('2d');
-    new Chart(ctxCategory, {
-      type: 'bar',
-      data: {
-        labels: ['Food', 'Carbonated', 'Non Carbonated', 'Water'],
-        datasets: [{
-          label: 'Sales by Category',
-          data: [salesData.food, salesData.carbonated, salesData.nonCarbonated, salesData.water],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        plugins: {
-          title: {
-              display: true,
-              text: 'Sales by Categories',
-              padding: {
-                bottom: 20
-              },
-              font: {
-                size: 17,
-                color: 'black'
-              }
-          }
-      },
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+        const category = item.Category.toLowerCase();
+        if (!groupedCategories[category]) {
+            groupedCategories[category] = 0;
         }
-      }
+        groupedCategories[category] += item.MQty;
     });
+
+    // Order categories based on predefinedOrder
+    const orderedCategories = predefinedOrder.filter(category => category in groupedCategories);
+    const dataValuesCategory = orderedCategories.map(category => groupedCategories[category]);
+
+    const backgroundColorsCategory = [
+        'rgba(255, 99, 132, 0.2)', // Food
+        'rgba(54, 162, 235, 0.2)', // Carbonated
+        'rgba(75, 192, 192, 0.2)', // Non Carbonated
+        'rgba(153, 102, 255, 0.2)' // Water
+    ];
+    const borderColorsCategory = [
+        'rgba(255, 99, 132, 1)',   // Food
+        'rgba(54, 162, 235, 1)',   // Carbonated
+        'rgba(75, 192, 192, 1)',   // Non Carbonated
+        'rgba(153, 102, 255, 1)'   // Water
+    ];
+
+    const canvasCategory = document.getElementById('salesByCategory');
+    const ctxCategory = canvasCategory.getContext('2d');
+    const categoryChart = new Chart(ctxCategory, {
+        type: 'bar',
+        data: {
+            labels: orderedCategories.map(category => category.charAt(0).toUpperCase() + category.slice(1)), // Capitalize category names
+            datasets: [{
+                data: dataValuesCategory,
+                backgroundColor: backgroundColorsCategory,
+                borderColor: borderColorsCategory,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    onClick: (e, legendItem, legend) => {
+                        const index = legendItem.index;
+                        const ci = legend.chart;
+                        const meta = ci.getDatasetMeta(0);
+
+                        // Toggle the visibility of the clicked label
+                        meta.data[index].hidden = !meta.data[index].hidden;
+
+                        ci.update();
+                    },
+                    labels: {
+                        generateLabels: (chart) => {
+                            const data = chart.data;
+                            if (data.labels.length && data.datasets.length) {
+                                return data.labels.map((label, i) => ({
+                                    text: label,
+                                    fillStyle: data.datasets[0].backgroundColor[i],
+                                    strokeStyle: data.datasets[0].borderColor[i],
+                                    lineWidth: data.datasets[0].borderWidth,
+                                    hidden: isNaN(data.datasets[0].data[i]) || chart.getDatasetMeta(0).data[i].hidden,
+                                    index: i
+                                }));
+                            }
+                            return [];
+                        }
+                    }
+                },
+              title: {
+                display: true,
+                text: 'Sales by Categories',
+                padding: {
+                  bottom: 20
+                },
+                font: {
+                  size: 17,
+                  color: 'black'
+                }
+              }
+            }
+        }
+    });
+
 
     // MENAMPILKAN PENJUALAN SETIAP MACHINE
     const groupedData = {};
