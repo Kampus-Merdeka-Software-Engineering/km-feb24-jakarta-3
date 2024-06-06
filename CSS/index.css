@@ -154,6 +154,10 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 } */
 
+.judulChart {
+  color: #656565;
+}
+
 #topProduct {
   background-color: white;
   border: solid transparent;
@@ -705,6 +709,9 @@ footer{
 
 #feedback {
   resize: none;
+}
+.error{
+  color: red;
 }
 
 .popup {
