@@ -52,6 +52,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }]
       },
       options: {
+        plugins: {
+          title: {
+              display: true,
+              text: 'Type of Transactions',
+              padding: {
+                bottom: 20
+              },
+              font: {
+                size: 17,
+                color: 'black'
+              }
+          }
+      },
         responsive: true
       }
     });
@@ -148,6 +161,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }]
       },
       options: {
+        plugins: {
+          title: {
+              display: true,
+              text: 'Sales by Categories',
+              padding: {
+                bottom: 20
+              },
+              font: {
+                size: 17,
+                color: 'black'
+              }
+          }
+      },
         responsive: true,
         scales: {
           y: {
@@ -199,6 +225,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         datasets: datasets
       },
       options: {
+        plugins: {
+          title: {
+              display: true,
+              text: 'Machine Performance',
+              padding: {
+                bottom: 20
+              },
+              font: {
+                size: 17,
+                color: 'black'
+              }
+          }
+      },
         responsive: true,
         indexAxis: 'y',
         scales: {

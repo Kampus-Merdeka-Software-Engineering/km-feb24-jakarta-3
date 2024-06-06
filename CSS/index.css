@@ -133,20 +133,6 @@ main{
   padding: 1rem;
 }
 
-#lokasiByCategory{
-  background-color: white;
-  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
-  border-radius: 1rem;
-  padding: 1rem;
-}
-
-#salesByLokasi{
-  background-color: white;
-  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
-  border-radius: 1rem;
-  padding: 1rem;
-}
-
 #typeTransaksi {
   height: 22rem;
   width: 22rem;
