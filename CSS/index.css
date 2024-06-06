@@ -406,12 +406,13 @@ tr:nth-child(even) {
 
 .about-content h1{
   position: absolute;
-  top: 8%;
-  left: 5%;
+  top: 5%;
+  left: 3%;
   font-size: 3.5rem;
   font-weight: 800;
   color: #3C89AA;
 }
+
 
 .about-content p{
   position: absolute;
