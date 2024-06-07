@@ -166,33 +166,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 }
             },
             plugins: {
-                legend: {
-                    onClick: (e, legendItem, legend) => {
-                        const index = legendItem.index;
-                        const ci = legend.chart;
-                        const meta = ci.getDatasetMeta(0);
+              legend: {
+                  onClick: (e, legendItem, legend) => {
+                      const index = legendItem.index;
+                      const ci = legend.chart;
+                      const meta = ci.getDatasetMeta(0);
 
-                        // Toggle the visibility of the clicked label
-                        meta.data[index].hidden = !meta.data[index].hidden;
-
-                        ci.update();
-                    },
-                    labels: {
-                        generateLabels: (chart) => {
-                            const data = chart.data;
-                            if (data.labels.length && data.datasets.length) {
-                                return data.labels.map((label, i) => ({
-                                    text: label,
-                                    fillStyle: data.datasets[0].backgroundColor[i],
-                                    strokeStyle: data.datasets[0].borderColor[i],
-                                    lineWidth: data.datasets[0].borderWidth,
-                                    hidden: isNaN(data.datasets[0].data[i]) || chart.getDatasetMeta(0).data[i].hidden,
-                                    index: i
-                                }));
-                            }
-                            return [];
+                      // Toggle the visibility of the clicked label
+                      meta.data[index].hidden = !meta.data[index].hidden;
+                      ci.update();
+                  },
+                  labels: {
+                    generateLabels: (chart) => {
+                        const data = chart.data;
+                        if (data.labels.length && data.datasets.length) {
+                            return data.labels.map((label, i) => ({
+                                text: label,
+                                fillStyle: data.datasets[0].backgroundColor[i],
+                                strokeStyle: data.datasets[0].borderColor[i],
+                                lineWidth: data.datasets[0].borderWidth,
+                                hidden: isNaN(data.datasets[0].data[i]) || chart.getDatasetMeta(0).data[i].hidden,
+                                index: i
+                            }));
                         }
+                        return [];
                     }
+                  }
                 },
               title: {
                 display: true,
@@ -299,22 +298,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     newCanvas.id = id;
     parent.appendChild(newCanvas);
   }
-
-  // const sidebarToggle = document.getElementById('sidebarToggle');
-  //       const sidebar = document.querySelector('.sidebar');
-  //       const main = document.querySelector('main');
-
-  //       sidebarToggle.addEventListener('click', () => {
-  //           sidebar.classList.toggle('sidebar-hidden');
-  //           main.classList.toggle('with-sidebar');
-            
-  //           setTimeout(() => {
-  //               chartInstance.resize();
-  //           }, 300); // Sesuaikan waktu ini dengan durasi transisi CSS
-  //       });
-
-  //       window.addEventListener('resize', () => {
-  //           chartInstance.resize();
-  //       });
 
 });

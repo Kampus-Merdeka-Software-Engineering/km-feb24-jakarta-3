@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.feedbackContent').addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -17,11 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('feedbackError').textContent = "Feedback cannot exceed 100 words";
             return;
         }
-
-        // // Save feedback to local storage
-        // let feedbackList = JSON.parse(localStorage.getItem('feedbackList')) || [];
-        // feedbackList.push(feedback);
-        // localStorage.setItem('feedbackList', JSON.stringify(feedbackList));
 
         // Show popup and overlay
         document.getElementById('popup').classList.add('show');
