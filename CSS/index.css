@@ -54,9 +54,9 @@ main {
 #sidebarToggle .logo-sidebar {
   margin-top: 5px;
   opacity: 0.7;
-  width: 40px; /* Sesuaikan ukuran logo sesuai kebutuhan */
-  height: auto; /* Memastikan aspek rasio gambar tetap terjaga */
-  display: flex; /* Mengatur gambar sebagai elemen block agar tidak ada whitespace di sekitarnya */
+  width: 40px;
+  height: auto; 
+  display: flex; 
 }
 
 .sidebar-hidden ~ main {
@@ -131,7 +131,7 @@ main {
   #sidebarToggle .logo-sidebar {
     margin-top: 0;
     margin-left: 0;
-    width: 30px; /* Atur ukuran logo menjadi lebih kecil untuk layar kecil */
+    width: 30px;
   }
 
   main.with-sidebar {
@@ -194,7 +194,7 @@ main {
 }
 
 .salesByCategory-container, .chartMahcine-container, .typeTransaksi-container{
-  max-width: 40rem;
+  max-width: 35rem;
   max-height: 20rem;
   width: 100% !important;
   height: 100% !important;
@@ -811,7 +811,7 @@ footer{
   }
 
   #topProduct {
-    max-width: 400px;
+    max-width: 300px;
     width: 100%;
   }
 
@@ -823,7 +823,16 @@ footer{
       position: relative;
       margin-top: 20px;
       margin-left: 325px;
-      
+
+    }
+
+    .footer-content p{
+      font-size: 10px;
+    }
+
+    .feedbackContainer, label, span{
+      width: 250px;
+      font-size: 10px;
     }
       
     .footer .made-by {
@@ -839,6 +848,16 @@ footer{
       background-color:cornflowerblue;
       font-size: 0.7rem;
   }
+  #topProduct {
+    width: max-content;
+  }
+  .salesByCategory-container, .chartMahcine-container, .typeTransaksi-container{
+    max-width: 50rem;
+    max-height: 20rem;
+    width: 100%;
+    height: 100%;
+  }
+
 
   .footer {
       position: relative;
@@ -859,6 +878,17 @@ footer{
   html{
       background-color:green;
       font-size: 1rem;
+  }
+
+  #topProduct {
+    width: max-content;
+  }
+
+  .salesByCategory-container, .chartMahcine-container, .typeTransaksi-container{
+    max-width: 35rem;
+    max-height: 20rem;
+    width: 100% !important;
+    height: 100% !important;
   }
 
   .footer {
