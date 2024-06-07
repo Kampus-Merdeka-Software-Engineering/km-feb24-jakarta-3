@@ -810,6 +810,11 @@ footer{
       font-size: 0.5rem;
   }
 
+  .dashboard-content {
+    display: grid;
+    justify-items: center;
+  }
+
   #topProduct {
     max-width: 300px;
     width: 100%;
