@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
               }
           }
       },
-        responsive: true
+        responsive: true,
+        maintainAspectRatio: false
       }
     });
 
@@ -158,6 +159,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero: true
@@ -264,6 +266,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           }
       },
         responsive: true,
+        maintainAspectRatio: false,
         indexAxis: 'y',
         scales: {
           y: {
@@ -282,4 +285,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     newCanvas.id = id;
     parent.appendChild(newCanvas);
   }
+
+  // const sidebarToggle = document.getElementById('sidebarToggle');
+  //       const sidebar = document.querySelector('.sidebar');
+  //       const main = document.querySelector('main');
+
+  //       sidebarToggle.addEventListener('click', () => {
+  //           sidebar.classList.toggle('sidebar-hidden');
+  //           main.classList.toggle('with-sidebar');
+            
+  //           setTimeout(() => {
+  //               chartInstance.resize();
+  //           }, 300); // Sesuaikan waktu ini dengan durasi transisi CSS
+  //       });
+
+  //       window.addEventListener('resize', () => {
+  //           chartInstance.resize();
+  //       });
+
 });

@@ -246,4 +246,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   // Buat chart awal dengan tampilan mingguan dan filter diterapkan
   updateChart(groupByFunction, location, machine, category);
+
 });

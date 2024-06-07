@@ -1,24 +1,71 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-body{
+body {
   display: flex;
   flex-direction: row;
+  transition: margin-left 0.3s ease;
 }
 
-/* ASIDE */
 aside {
   width: fit-content;
 }
+
+main {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+  width: calc(100% - 13rem); /* menyeuaikan lebar main berdasarkan lebar sidebar */
+}
+
 .sidebar {
   background-image: linear-gradient(to bottom, #72ACC6 35%, #094058);
-  width: 13rem;
-  height: 100%;
+  width: 13rem; 
+  height: 100%; 
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.sidebar-hidden {
+  transform: translateX(-13rem); 
+}
+
+#sidebarToggle {
+  position: fixed;
+  top: 10px;
+  left: 5px;
+  z-index: 1001;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+#sidebarToggle .logo-sidebar {
+  margin-top: 5px;
+  opacity: 0.7;
+  width: 40px; /* Sesuaikan ukuran logo sesuai kebutuhan */
+  height: auto; /* Memastikan aspek rasio gambar tetap terjaga */
+  display: flex; /* Mengatur gambar sebagai elemen block agar tidak ada whitespace di sekitarnya */
+}
+
+.sidebar-hidden ~ main {
+  width: 100%; 
+  margin-left: 0;
+}
+
+main.with-sidebar {
+  margin-left: 13rem; 
 }
 
 .menu {
@@ -39,7 +86,7 @@ aside {
   background-color: white;
 }
 
-.menu li>img {
+.menu li > img {
   width: 1.8rem;
 }
 
@@ -62,13 +109,39 @@ aside {
   color: white;
 }
 
-main{
+main {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100vh;
   background-color: rgb(218, 218, 218);
   overflow-x: hidden;
+  transition: width 0.3s ease, margin-left 0.3s ease; 
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  
+  .content {
+    margin-left: 200px;
+  }
+
+  #sidebarToggle .logo-sidebar {
+    margin-top: 0;
+    margin-left: 0;
+    width: 30px; /* Atur ukuran logo menjadi lebih kecil untuk layar kecil */
+  }
+
+  main.with-sidebar {
+    margin-left: 0; 
+    width: 100%; 
+  }
+
+  .sidebar-hidden {
+      transform: translateX(-100%); 
+  }
 }
 
 /* SECTION-DASHBOARD */
