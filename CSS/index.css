@@ -142,6 +142,7 @@ main {
   .sidebar-hidden {
       transform: translateX(-100%); 
   }
+
 }
 
 /* SECTION-DASHBOARD */
@@ -186,14 +187,14 @@ main {
 
 .dashboard-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
   grid-gap: 20px; 
   align-items: center; 
-  justify-content: center; 
+  justify-content: center;
 }
 
 .salesByCategory-container {
-  max-width: 35rem;
+  max-width: 40rem;
   max-height: 20rem;
   width: 100% !important;
   height: 100% !important;
@@ -204,10 +205,11 @@ main {
   box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
   border-radius: 1rem;
   padding: 1rem;
+  height: 20rem;
 }
 
 .chartMahcine-container{
-  max-width: 35rem;
+  max-width: 40rem;
   max-height: 20rem;
   width: 100% !important;
   height: 100% !important;
@@ -218,12 +220,18 @@ main {
   box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
   border-radius: 1rem;
   padding: 1rem;
+  height: 20rem;
+}
+
+.typeTransaksi-container{
+  max-width: 35rem;
+  max-height: 20rem;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 
 #typeTransaksi {
-  height: 20rem;
-  width: 22rem;
   background-color: white;
   text-align: left;
   box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
@@ -232,7 +240,7 @@ main {
 }
 
 #topProduct_wrapper {
-  width: 70rem;
+  margin-bottom: 1rem;
 }
 
 #topProduct tr:nth-child(even) {
@@ -251,13 +259,29 @@ main {
 }
 
 #topProduct {
+  width: 100%;
   background-color: white;
   border: solid transparent;
   border-radius: 1rem;
   box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
   padding : 1rem;
+  margin: 0;
 }
 
+@media (max-width: 768px) {
+  #topProduct, #topProduct thead, #topProduct tbody, #topProduct th, #topProduct td, #topProduct tr {
+    display: block;
+  }
+
+  #topProduct td:before {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
 
 
 /* SECTION-MONITORING DATA */
@@ -839,7 +863,7 @@ footer{
 
 /* RESPONSIVE */
 /* mobile */
-@media (max-width: 480px){
+@media (max-width: 600px){
   html{
       background-color: brown;
       font-size: 0.5rem;
@@ -860,7 +884,7 @@ footer{
 }
 
 /* tablet */
-@media (max-width: 768px){
+@media (min-width: 768px){
   html{
       background-color:cornflowerblue;
       font-size: 0.7rem;
@@ -881,7 +905,7 @@ footer{
 }
 
 /* laptop */
-@media (min-width: 1024px){
+@media (min-width: 992px){
   html{
       background-color:green;
       font-size: 1rem;
