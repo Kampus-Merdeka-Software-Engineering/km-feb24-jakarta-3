@@ -72,13 +72,13 @@ main.with-sidebar {
   margin-top: 5rem;
   list-style: none;
   padding: 0;
+
 }
 
 .menu li {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
-  width: 10.5rem;
   padding: 1rem;
   margin-left: 0.5rem;
   margin-bottom: 1rem;
@@ -186,10 +186,17 @@ main {
 
 .dashboard-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Kolom dengan lebar minimal 200px, dan mengisi fraksi dari sisa ruang */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   grid-gap: 20px; 
   align-items: center; 
   justify-content: center; 
+}
+
+.salesByCategory-container {
+  max-width: 35rem;
+  max-height: 20rem;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 #salesByCategory {
@@ -199,12 +206,20 @@ main {
   padding: 1rem;
 }
 
+.chartMahcine-container{
+  max-width: 35rem;
+  max-height: 20rem;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 #chartMahcine {
   background-color: white;
   box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
   border-radius: 1rem;
   padding: 1rem;
 }
+
 
 #typeTransaksi {
   height: 20rem;
@@ -216,24 +231,26 @@ main {
   padding: 1rem;
 }
 
-/* th, td {
-  padding: 8px;
+#topProduct_wrapper {
+  width: 70rem;
+}
+
+#topProduct tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#topProduct th, #topProduct td {
+  padding: 5px;
   text-align: left;
+  border: 1px solid #ddd;
 }
-th {
-  background-color: #f2f2f2;
-}
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-} */
 
 .judulChart {
   color: #656565;
+  text-align: center !important;
 }
 
 #topProduct {
-  height : 18rem;
-  width :18rem;
   background-color: white;
   border: solid transparent;
   border-radius: 1rem;
@@ -822,7 +839,7 @@ footer{
 
 /* RESPONSIVE */
 /* mobile */
-@media (max-width: 599px){
+@media (max-width: 480px){
   html{
       background-color: brown;
       font-size: 0.5rem;
@@ -843,7 +860,7 @@ footer{
 }
 
 /* tablet */
-@media (min-width: 600px) and (max-width: 767px){
+@media (max-width: 768px){
   html{
       background-color:cornflowerblue;
       font-size: 0.7rem;
