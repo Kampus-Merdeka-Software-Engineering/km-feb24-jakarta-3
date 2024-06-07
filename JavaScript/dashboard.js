@@ -244,6 +244,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
         borderWidth: 1
       });
     });
+    
+    // Mengubah label mesin menjadi format yang diinginkan
+      const modifiedMachineLabels = machineLabels.map(label => {
+    // Menghapus pola "x" diikuti oleh angka di belakangnya dengan regex
+      const formattedMachineName = label.replace(/ x\d+/, '');
+      return formattedMachineName;
+    });
+
     const ctxMachine = document.getElementById('chartMahcine').getContext('2d');
     new Chart(ctxMachine, {
       type: 'bar',
@@ -255,7 +263,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         plugins: {
           title: {
               display: true,
-              text: 'Machine Performance',
+              text: 'Sales by Machine',
               padding: {
                 bottom: 20
               },
@@ -270,7 +278,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         indexAxis: 'y',
         scales: {
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+                    // Menggunakan label yang sudah dimodifikasi
+            ticks: {
+              callback: function(value, index, values) {
+              return modifiedMachineLabels[index];
+              }
+            }
           }
         }
       }

@@ -86,7 +86,7 @@
                     <table id="topProduct" class="display-table">
                         <thead id="tableHead">
                             <tr>
-                                <th colspan="3" class="colspan">Top 5 Products</th>
+                                <th colspan="3" class="judulChart">Top 5 Products</th>
                             </tr>
                             <tr>
                                 <th>Location</th>
@@ -350,9 +350,22 @@
                 <p>
                     Copyright &copy; Jakarta Team 3
                 </p>
+            </div>
+            <div class="feedbackContainer">
+                <form action="" class="feedbackContent">
+                    <label for="feedback">Feedback (max 100 words)</label>
+                    <textarea name="feedback" id="feedback" cols="35" rows="6"  placeholder="Your feedback.."></textarea>
+                    <span id="feedbackError" class="error"></span>
+                    <button type="submit">Send Feedback</button>
+                </form>
+            </div>
         </footer>
+        <div class="overlay" id="overlay"></div>
+        <div class="popup" id="popup">Feedback terkirim</div>
+
     </main>
 
+    <script src="./JavaScript/feedback.js"></script>
     <script src="./JavaScript/monitoring.js"></script>
     <script src="./JavaScript/dashboard.js"></script>
     <script src="./JavaScript/index.js"></script>
