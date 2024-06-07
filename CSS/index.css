@@ -134,8 +134,8 @@ main{
 }
 
 #typeTransaksi {
-  height: 22rem;
-  width: 22rem;
+  height: 15rem;
+  width: 15rem;
   background-color: white;
   text-align: left;
   box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
