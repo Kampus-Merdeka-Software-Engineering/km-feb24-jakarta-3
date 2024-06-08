@@ -837,6 +837,15 @@ footer{
     width: 100%;
   }
 
+  .dataTables_info {
+    font-size: 1.2rem;
+  }
+  
+  #topProduct_paginate a{
+    font-size: 1.2rem;
+    
+  }
+
   .courses-content p {
       font-size: 6px;
   }
