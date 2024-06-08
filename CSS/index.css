@@ -389,8 +389,6 @@ main {
   background-color: white;
   border: solid transparent;
   border-radius: 1rem;
-  max-height: 30rem;
-  max-width: 60rem;
   width: 100% !important;
   height: 100% !important;
   box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);;
