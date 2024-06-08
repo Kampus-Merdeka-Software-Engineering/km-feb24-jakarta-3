@@ -151,10 +151,7 @@ main {
 #dashboard {
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
-  padding-bottom: 5rem;
+  padding: 2rem 5rem;
   background-color: white;
 }
 
@@ -202,29 +199,12 @@ main {
   height: 100% !important;
 }
 
-#salesByCategory {
+#salesByCategory, #chartMahcine, #typeTransaksi, #topProduct {
   background-color: white;
   box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
   border-radius: 1rem;
   padding: 1rem;
   height: 20rem;
-}
-
-
-#chartMahcine {
-  background-color: white;
-  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
-  border-radius: 1rem;
-  padding: 1rem;
-  height: 20rem;
-}
-
-#typeTransaksi {
-  background-color: white;
-  text-align: left;
-  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
-  border-radius: 1rem;
-  padding: 1rem;
 }
 
 #topProduct_wrapper {
@@ -257,14 +237,8 @@ main {
 
 #topProduct {
   width: 100%;
-  background-color: white;
-  border: solid transparent;
-  border-radius: 1rem;
-  box-shadow: 5px 5px 10px rgb(9, 64, 88, 0.5);
-  padding : 1rem;
-  margin: 0;
+  margin-top: 5rem;
 }
-
 
 /* SECTION-MONITORING DATA */
 #monitoringData {
