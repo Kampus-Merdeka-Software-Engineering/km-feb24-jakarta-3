@@ -13,7 +13,9 @@ body {
 }
 
 aside {
+  width: -moz-fit-content;
   width: fit-content;
+  margin: 0 auto;
 }
 
 main {
@@ -812,11 +814,17 @@ footer{
 
   .dashboard-content {
     display: grid;
+    grid-template-rows: 30rem 30rem;
     justify-items: center;
   }
 
+  .salesByCategory-container, .chartMahcine-container{
+    max-height: 30rem;
+    height: 100%;
+  }
+
   #topProduct {
-    max-width: 300px;
+    max-width: 40rem;
     width: 100%;
   }
 
@@ -854,7 +862,8 @@ footer{
       font-size: 0.7rem;
   }
   #topProduct {
-    width: max-content;
+    max-width: 50rem;
+    width: 100%;
   }
   .salesByCategory-container, .chartMahcine-container, .typeTransaksi-container{
     max-width: 50rem;
