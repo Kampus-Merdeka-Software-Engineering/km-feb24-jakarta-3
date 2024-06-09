@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-  let rawData = []; // Memungkinkan penyaringan ulang ketika lokasi berubah
+  let rawData = [];
 
   fetch('./data.json')
     .then(response => response.json())
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     .catch(error => console.error('Error fetching data:', error));
 
   function updateDashboard(data) {
-    // Reset canvas elements
     resetCanvas('typeTransaksi');
     resetCanvas('salesByCategory');
     resetCanvas('chartMahcine');
@@ -45,8 +44,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
           label: 'Transaction Type Distribution',
           data: dataValues,
           backgroundColor: [
-            'rgba(255, 99, 132, 0.7)', // Merah
-            'rgba(54, 162, 235, 0.7)' // Biru
+            'rgba(255, 99, 132, 0.7)', 
+            'rgba(54, 162, 235, 0.7)' 
           ],
           borderWidth: 1
         }]
@@ -97,7 +96,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     const tableBody = document.querySelector('#topProduct tbody');
-    tableBody.innerHTML = ''; // Clear the previous data
+    tableBody.innerHTML = '';
     topProductsByLocation.forEach(item => {
       const row = `<tr>
                     <td>${item.location}</td>
@@ -112,7 +111,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       "lengthChange": false,
       "searching": false,
       "ordering": true,
-      "destroy": true // Ensure the table is re-initialized properly
+      "destroy": true
     });
 
     // MENAMPILKAN PENJUALAN BERDASARKAN CATEGORY
@@ -127,21 +126,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
         groupedCategories[category] += item.MQty;
     });
 
-    // Order categories based on predefinedOrder
     const orderedCategories = predefinedOrder.filter(category => category in groupedCategories);
     const dataValuesCategory = orderedCategories.map(category => groupedCategories[category]);
 
     const backgroundColorsCategory = [
-        'rgba(255, 99, 132, 0.2)', // Food
-        'rgba(54, 162, 235, 0.2)', // Carbonated
-        'rgba(75, 192, 192, 0.2)', // Non Carbonated
-        'rgba(153, 102, 255, 0.2)' // Water
+        'rgba(255, 99, 132, 0.2)', 
+        'rgba(54, 162, 235, 0.2)', 
+        'rgba(75, 192, 192, 0.2)', 
+        'rgba(153, 102, 255, 0.2)' 
     ];
     const borderColorsCategory = [
-        'rgba(255, 99, 132, 1)',   // Food
-        'rgba(54, 162, 235, 1)',   // Carbonated
-        'rgba(75, 192, 192, 1)',   // Non Carbonated
-        'rgba(153, 102, 255, 1)'   // Water
+        'rgba(255, 99, 132, 1)', 
+        'rgba(54, 162, 235, 1)',  
+        'rgba(75, 192, 192, 1)',  
+        'rgba(153, 102, 255, 1)'   
     ];
 
     const canvasCategory = document.getElementById('salesByCategory');
@@ -149,7 +147,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const categoryChart = new Chart(ctxCategory, {
         type: 'bar',
         data: {
-            labels: orderedCategories.map(category => category.charAt(0).toUpperCase() + category.slice(1)), // Capitalize category names
+            labels: orderedCategories.map(category => category.charAt(0).toUpperCase() + category.slice(1)), 
             datasets: [{
                 data: dataValuesCategory,
                 backgroundColor: backgroundColorsCategory,
@@ -172,7 +170,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
                       const ci = legend.chart;
                       const meta = ci.getDatasetMeta(0);
 
-                      // Toggle the visibility of the clicked label
                       meta.data[index].hidden = !meta.data[index].hidden;
                       ci.update();
                   },
@@ -244,9 +241,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       });
     });
     
-    // Mengubah label mesin menjadi format yang diinginkan
       const modifiedMachineLabels = machineLabels.map(label => {
-    // Menghapus pola "x" diikuti oleh angka di belakangnya dengan regex
       const formattedMachineName = label.replace(/ x\d+/, '');
       return formattedMachineName;
     });
@@ -278,7 +273,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         scales: {
           y: {
             beginAtZero: true,
-                    // Menggunakan label yang sudah dimodifikasi
             ticks: {
               callback: function(value, index, values) {
               return modifiedMachineLabels[index];

@@ -50,17 +50,13 @@ function getWeekNumber(date) {
   return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
 }
 
-// Variabel untuk menyimpan chart instance
 let myChart;
 
 // Fungsi untuk menginisialisasi atau memperbaharui grafik
 async function updateChart(groupByFunction, location, machine, category) {
   const data = await fetchData();
 
-  // Memfilter data berdasarkan parameter filter
   const filteredData = filterData(data, location, machine, category);
-
-  // Mengelompokkan data menggunakan fungsi yang diberikan
   const groupedData = groupByFunction(filteredData);
 
   // Memisahkan label dan nilai dari data yang dikelompokkan
@@ -73,7 +69,6 @@ async function updateChart(groupByFunction, location, machine, category) {
   });
   const values = Object.values(groupedData);
 
-  // Jika chart sudah ada, maka hapus dulu
   if (myChart) {
     myChart.destroy();
   }
@@ -125,7 +120,7 @@ function filterData(data, location, machine, category) {
 // Fungsi untuk memperbarui dropdown machine berdasarkan lokasi
 function updateMachineDropdown(data, location) {
   const machineDropdown = document.getElementById('machineMonitoring');
-  machineDropdown.innerHTML = '<option value="">All Machine</option>'; // Reset options
+  machineDropdown.innerHTML = '<option value="">All Machine</option>';
 
   const machines = new Set();
   data.forEach(item => {
@@ -234,17 +229,12 @@ document.getElementById('btnMonthly').addEventListener('click', () => {
 // Panggil fungsi untuk memperbarui scorecard pada saat halaman dimuat
 document.addEventListener('DOMContentLoaded', async () => {
   const data = await fetchData();
-  
-  // Update machine dropdown dan scorecards pada saat halaman dimuat
   const location = document.getElementById('lokasiMonitoring').value;
   updateMachineDropdown(data, location);
   updateScorecards();
-  
   const machine = document.getElementById('machineMonitoring').value;
   const category = document.getElementById('categoryMonitoring').value;
   const groupByFunction = getSelectedGroupByFunction();
-  
-  // Buat chart awal dengan tampilan mingguan dan filter diterapkan
   updateChart(groupByFunction, location, machine, category);
 
 });
