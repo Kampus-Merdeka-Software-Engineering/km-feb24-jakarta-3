@@ -754,6 +754,7 @@ body.light-mode {
 
 .dark-mode #topProduct_paginate a{
   color: #72ACC6 !important;
+  background-color: #ffffff ;
 }
 
 .dark-mode #monitoringData {
