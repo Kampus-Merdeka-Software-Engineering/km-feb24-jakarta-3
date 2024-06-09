@@ -114,11 +114,13 @@ main.with-sidebar {
 main {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  flex-grow: 1;
+  width: calc(100% - 13rem);
   height: 100vh;
   background-color: rgb(218, 218, 218);
   overflow-x: hidden;
-  transition: width 0.3s ease, margin-left 0.3s ease; 
+  transition: width 0.3s ease, margin-left 0.3s ease;
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -613,8 +615,10 @@ main {
 .tablet-container img { width: 68px; height: 81px; }
 .pc-container img { width: 91px; height: 81px; }
 
-/* Personalization, Time and Language, Update Content */
-.personalization-content, .time_language-content, .update-content {
+/* Personalization */
+.personalization-content {
+  display: flex;
+  justify-content: space-around;
   width: 100%;
   max-width: 482px;
   border: solid transparent;
@@ -626,25 +630,32 @@ main {
   box-sizing: border-box;
 }
 
-.personalization-content p, .time_language-content p, .update-content p {
+.personalization-content p{
   color: #3C89AA;
   font-size: 1rem;
-  margin-left: 6.5rem;
+  margin-left: 5rem;
   margin-top: 1rem;
   text-align: left;
 }
 
-.personalization-image, .time_language-image, .update-image {
+.personalization-image {
   width: 50px;
   height: auto;
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  /* left: 1rem; */
+}
+
+.mode-toggle {
+ display: flex;
+ gap: 1rem;
+}
+
+.mode-button {
+  width: 4rem;
 }
 
 .personalization-image { width: 73px; height: 72px; }
-.time_language-image { width: 78px; height: 62px; }
-.update-image { width: 63px; height: 49px; }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
@@ -657,7 +668,7 @@ main {
     align-items: center;
   }
 
-  .setting-content, .personalization-content, .time_language-content, .update-content {
+  .setting-content, .personalization-content {
     width: 90%;
   }
 
@@ -674,12 +685,12 @@ main {
     margin-bottom: 1rem;
   }
 
-  .personalization-content p, .time_language-content p, .update-content p {
+  .personalization-content p{
     margin-left: 0;
     text-align: center;
   }
 
-  .personalization-image, .time_language-image, .update-image {
+  .personalization-image {
     position: static;
     margin: 0 auto;
     display: block;
@@ -696,15 +707,97 @@ main {
     height: auto;
   }
 
-  .personalization-content p, .time_language-content p, .update-content p {
+  .personalization-content p {
     font-size: 0.8rem;
   }
 
-  .personalization-image, .time_language-image, .update-image {
+  .personalization-image {
     width: 40px;
     height: auto;
   }
 }
+
+/* DARK MODE */
+.body.dark-mode {
+  background-color: #121212;
+}
+
+/* LIGHT MODE */
+body.light-mode {
+  background-color: #ffffff;
+}
+
+.dark-mode main{
+  background-color: #333333;
+}
+
+/* Dark Mode Sidebar */
+.dark-mode .sidebar {
+  background-image: linear-gradient(to bottom, #333333 35%, #000000);
+}
+
+/* Dark Mode Content */
+.dark-mode .setting-content,
+.dark-mode .personalization-content {
+    background-color: #474747;
+    color: #ffffff;
+}
+
+.dark-mode #dashboard {
+  background-color: #333333;
+  color: #000000;
+}
+
+.dark-mode #topProduct_info{
+  color: #72ACC6;
+}
+
+.dark-mode #topProduct_paginate a{
+  color: #72ACC6 !important;
+}
+
+.dark-mode #monitoringData {
+  background-color: #333333;
+}
+
+.dark-mode #about {
+  background-image: linear-gradient(to bottom, #333333 35%, #000000);
+  color: #ffffff;
+}
+
+.dark-mode .header-content-team h1 {
+  background-image: linear-gradient(to bottom, #333333 35%, #000000);
+  color: #ffffff; 
+}
+
+.dark-mode .profile-team {
+  background-color: #333333;
+  color: #ffffff; 
+}
+
+.dark-mode #setting {
+  background-image: linear-gradient(to bottom, #333333 35%, #000000);
+  color: #ffffff; 
+}
+
+.dark-mode .setting-content p {
+  color: #9abccc;
+}
+
+.dark-mode .personalization-content p {
+  color: #9abccc;
+}
+
+.dark-mode footer {
+  background-image: linear-gradient(to bottom, #333333 35%, #000000);
+  color: #ffffff;
+}
+
+.dark-mode .footer-content p {
+  color: #ffffff;
+}
+
+
 
 
 footer{
