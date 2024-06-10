@@ -299,7 +299,8 @@ main {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
+  margin-left: 0.2rem;
+  margin-top: 0.6rem;
 }
 
 .header-product, .header-mqty, .header-transaction, .header-rprice {
@@ -309,7 +310,7 @@ main {
   background-color: rgb(157, 139, 182, 49%);
   border-radius: 3rem;
   text-align: center;
-  width: 10rem;
+  width: 85%;
   height: 1.5rem;
   margin-top: 0.5rem;
 }
@@ -321,14 +322,15 @@ main {
 
 .section-mqty, .section-transaction, .section-rprice, .section-product {
   display: flex;
-  justify-content: flex-start;
+  flex: 1;
   align-items: center;
   flex-direction: column;
   font-size: 1.5rem;
   background-color: #9abccc;
-  min-width: 200px;
   height: auto;
   border-radius: 1rem;
+  width: 100%;
+  padding: 0.15rem;
 }
 
 /* ACTIVITY */
@@ -350,18 +352,13 @@ main {
 .filter {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.85rem;
+  gap: 1.2rem;
   margin-left: 0.2rem;
   margin-top: 0.6rem;
 }
 
-.filter form {
-  flex: 1;
-  min-width: 200px;
-}
-
 .filter select{
-  width: 100%;
+  width: 17rem;
   padding: 1rem;
   background-color: #9abccc;
   color: black;
