@@ -413,7 +413,7 @@ main {
   border-radius: 0.5rem;
   border: none;
   outline: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
   cursor: pointer;
 }
