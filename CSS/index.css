@@ -656,11 +656,12 @@ body.light-mode {
 
 .dark-mode main{
   background-color: #333333;
+  /* border: 2px solid white; */
 }
 
 /* Dark Mode Sidebar */
 .dark-mode .sidebar {
-  background-image: linear-gradient(to bottom, #333333 35%, #000000);
+  background-image: linear-gradient(to bottom, #000000 100%, #000000);
 }
 
 /* Dark Mode Content */
@@ -671,8 +672,8 @@ body.light-mode {
 }
 
 .dark-mode #dashboard {
-  background-color: #333333;
-  color: #000000;
+  background-color: #414141;
+  color: #414141;
 }
 
 .dark-mode #topProduct_info{
@@ -689,22 +690,22 @@ body.light-mode {
 }
 
 .dark-mode #about {
-  background-image: linear-gradient(to bottom, #333333 35%, #000000);
+  background-image: linear-gradient(to bottom, #333333 35%, #333333);
   color: #ffffff;
 }
 
 .dark-mode .header-content-team h1 {
-  background-image: linear-gradient(to bottom, #333333 35%, #000000);
+  background-image: linear-gradient(to bottom, #414141 35%, #414141);
   color: #ffffff; 
 }
 
 .dark-mode .profile-team {
-  background-color: #333333;
+  background-color: #414141;
   color: #ffffff; 
 }
 
 .dark-mode #setting {
-  background-image: linear-gradient(to bottom, #333333 35%, #000000);
+  background-image: linear-gradient(to bottom, #333333 35%, #333333);
   color: #ffffff; 
 }
 
@@ -717,7 +718,7 @@ body.light-mode {
 }
 
 .dark-mode footer {
-  background-image: linear-gradient(to bottom, #333333 35%, #000000);
+  background-image: linear-gradient(to bottom, #000000 35%, #000000);
   color: #ffffff;
 }
 
