@@ -306,9 +306,9 @@ main {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  font-size: 2.5rem;
+  font-size: 2rem;
   background-color: #9abccc;
-  width: 12rem;
+  width: 20rem;
   height: 6rem;
   border-radius: 1rem;
 
@@ -334,9 +334,9 @@ main {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  font-size: 2.5rem;
+  font-size: 2rem;
   background-color: #9abccc;
-  width: 12rem;
+  width: 20rem;
   height: 6rem;
   border-radius: 1rem;
 }
@@ -351,9 +351,9 @@ main {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  font-size: 2.5rem;
+  font-size: 2rem;
   background-color: #9abccc;
-  width: 12rem;
+  width: 20rem;
   height: 6rem;
   border-radius: 1rem;
 }
@@ -368,9 +368,9 @@ main {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  font-size: 2.5rem;
+  font-size: 2rem;
   background-color: #9abccc;
-  width: 12rem;
+  width: 20rem;
   height: 6rem;
   border-radius: 1rem;
 }
@@ -413,7 +413,7 @@ main {
   border-radius: 0.5rem;
   border: none;
   outline: none;
-  font-size: 2.5rem;
+  font-size: 2rem;
   box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
   cursor: pointer;
 }
@@ -425,7 +425,7 @@ main {
   border-radius: 0.5rem;
   border: none;
   outline: none;
-  font-size: 2.5rem;
+  font-size: 2rem;
   box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
   cursor: pointer;
 }
@@ -437,7 +437,7 @@ main {
   border-radius: 0.5rem;
   border: none;
   outline: none;
-  font-size: 2.5rem;
+  font-size: 2rem;
   box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
   cursor: pointer;
 }
