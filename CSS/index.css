@@ -449,7 +449,7 @@ main {
   background-color: white;
 }
 #wave {
-  width: 110rem;
+  width: 135rem;
 }
 
 .about-content h1{
@@ -463,19 +463,19 @@ main {
 
 .about-content p{
   position: absolute;
-  top: 23%;
-  left: 18%;
+  top: 15%;
+  left: 5%;
   color: #3C89AA;
-  width: 20.5rem;
-  text-align: center;
-  font-size: 1.4rem;
+  width: 40rem;
+  text-align:justify;
+  font-size: 1rem;
   font-weight:bold;
 }
 
 .about-content img{
   position: absolute;
   top: 5%;
-  left: 55%;
+  left:65%;
   width: 30rem;
 }
 
