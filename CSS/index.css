@@ -299,20 +299,9 @@ main {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 
-.section-product {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  font-size: 1.5rem;
-  background-color: #9abccc;
-  width: 13rem;
-  height: 6rem;
-  border-radius: 1rem;
-
-}
 .header-product, .header-mqty, .header-transaction, .header-rprice {
   display: flex;
   align-items: center;
@@ -324,62 +313,23 @@ main {
   height: 1.5rem;
   margin-top: 0.5rem;
 }
-#valueProduct {
+
+#valueProduct, #valueMqty, #valueTransaction, #valueRprice {
   margin-top: 0.5rem;
   font-size: 2.2rem;
 }
 
-.section-mqty {
+.section-mqty, .section-transaction, .section-rprice, .section-product {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   font-size: 1.5rem;
   background-color: #9abccc;
-  width: 13rem;
-  height: 6rem;
+  min-width: 200px;
+  height: auto;
   border-radius: 1rem;
 }
-
-#valueMqty {
-  margin-top: 0.5rem;
-  font-size: 2.2rem;
-}
-
-.section-transaction {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  font-size: 1.5rem;
-  background-color: #9abccc;
-  width: 13rem;
-  height: 6rem;
-  border-radius: 1rem;
-}
-
-#valueTransaction {
-  margin-top: 0.5rem;
-  font-size: 2.2rem;
-}
-
-.section-rprice {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  font-size: 1.5rem;
-  background-color: #9abccc;
-  width: 13rem;
-  height: 6rem;
-  border-radius: 1rem;
-}
-
-#valueRprice{
-  margin-top: 0.5rem;
-  font-size: 2.2rem;
-}
-
 
 /* ACTIVITY */
 .activityContent {
@@ -400,48 +350,28 @@ main {
 .filter {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
+  gap: 1.85rem;
   margin-left: 0.2rem;
   margin-top: 0.6rem;
 }
 
-.btnLokasiMonitoring select{
-  width: 17rem;
-  padding: 1rem;
-  background-color: #9abccc;
-  color: black;
-  border-radius: 0.5rem;
-  border: none;
-  outline: none;
-  font-size: 1.5rem;
-  box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
-  cursor: pointer;
-}
-.btnMachineMonitoring select{
-  width: 17rem;
-  padding: 1rem;
-  background-color: #9abccc;
-  color: black;
-  border-radius: 0.5rem;
-  border: none;
-  outline: none;
-  font-size: 1.5rem;
-  box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
-  cursor: pointer;
-}
-.btnCategoryMonitoring select{
-  width: 17rem;
-  padding: 1rem;
-  background-color: #9abccc;
-  color: black;
-  border-radius: 0.5rem;
-  border: none;
-  outline: none;
-  font-size: 1.5rem;
-  box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
-  cursor: pointer;
+.filter form {
+  flex: 1;
+  min-width: 200px;
 }
 
+.filter select{
+  width: 100%;
+  padding: 1rem;
+  background-color: #9abccc;
+  color: black;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
+  cursor: pointer;
+}
 
 /* SECTION-ABOUT */
 #about {
